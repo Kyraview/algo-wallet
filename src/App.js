@@ -1,13 +1,17 @@
 import './App.css';
-import Home from './components/home';
+import Wallet from './components/Wallet';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  document.body.style = 'background: black;'
+  document.body.style = 'background: white;'
   return (
-    <div className="App">
-      <Home />
+    <>
+    <br/>
+    <br/>
+    <div style={{display:'flex', justifyContent:'center'}} className="App">
+      <Wallet />
     </div>
+    </>
   );
 }
 
