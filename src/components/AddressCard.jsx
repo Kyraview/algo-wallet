@@ -17,7 +17,7 @@ export default function AddressCard(props){
     <CopyToClipboard text={props.address}>
     <p id="blinkAddress" onClick={blink} style={{wordBreak:'break-all', width:'130px', margin:'10px'}}>
         {props.address}
-        <img onClick={blink} style={{width: '20px', height: '20px', marginLeft:'5px', cursor:'pointer'}} src={copyIcon}/>
+        <img alt='' onClick={blink} style={{width: '20px', height: '20px', marginLeft:'5px', cursor:'pointer'}} src={copyIcon}/>
     </p>
     
     </CopyToClipboard>
