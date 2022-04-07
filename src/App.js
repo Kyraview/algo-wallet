@@ -27,7 +27,7 @@ function App() {
         </div>
         <div className='col'>
         <Wallet />
-        <br/><br/><br/>
+        <br/><br/><br/><br/><br/>
         </div>
       </div>
     </div>
