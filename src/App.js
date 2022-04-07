@@ -42,7 +42,7 @@ function App() {
       </div>
     </footer>
     <div style={{display:'flex', justifyContent:'center'}}>
-    <Modal show={show} onHide={handleClose} contentClassName='donateAlert'>
+    <Modal show={show} onHide={handleClose} contentClassName='donateAlert' center>
         <Modal.Header>
           <Modal.Title>Thank you for feeding our Code Monkeys</Modal.Title>
         </Modal.Header>

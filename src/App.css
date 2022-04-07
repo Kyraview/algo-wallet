@@ -18,12 +18,22 @@
 }
 
 .donateAlert{
-  width: 130%!important;
+  width: 700px!important;
   align-self: center!important;
   text-align: center!important;
-  transform: translateX(-12%);
+  position: absolute!important;
+  left: 0vw!important;
+  transform: translateX(-15%)!important;
+  overflow-wrap: break-word;
 }
 
 body{
   overflow-x: hidden;
+}
+
+@media screen and (max-width: 700px) {
+  .donateAlert {
+    width:98vw!important;
+    transform: translateX(1vw)!important;
+  }
 }
