@@ -1,6 +1,4 @@
-import { Send, Clipboard } from 'react-bootstrap-icons';
-
-import { MDBFormInline, MDBInput } from "mdbreact";
+import { Clipboard } from 'react-bootstrap-icons';
 import { useState} from 'react';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';

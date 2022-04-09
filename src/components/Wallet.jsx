@@ -2,7 +2,6 @@ import logo from '../imgs/logo.png';
 import copyIcon from '../imgs/copyIcon.png';
 import receiveIcon from '../imgs/receive.png';
 import sendIcon from '../imgs/send.png';
-import connect from '../imgs/connect.png';
 import settingsIcon from '../imgs/settings.png';
 import Card from 'react-bootstrap/Card';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
@@ -41,17 +40,19 @@ export default function Wallet() {
     const connect_func = async () => {
         console.log("here");
         try{
-          await window.ethereum.request({
-              method: 'wallet_enable',
-              params: [{
-                wallet_snap: { ["npm:algorand"]: {} },
-              }]
-            })
-          await getAddress();
-        } catch (err) {
-          alert("this app requires the metamask flask extension to be installed at the moment")
+        await window.ethereum.request({
+            method: 'wallet_enable',
+            params: [{
+              wallet_snap: { ["npm:algorand"]: {} },
+            }]
+          })
+        }
+        catch (e){
+          alert('SnapAlgo currently requires a desktop installation of MetaMask Flask.');
           return null;
         }
+        await getAddress();
+        
 
         set_connected(true);
         slideup();
@@ -100,9 +101,7 @@ export default function Wallet() {
         }
         set_receive(!receive);
     }
-    const toggle = (value) => {
-      return !value;
-    }
+
     const toggleSend = () => {
       if(receive){
         set_receive(false);
@@ -129,7 +128,7 @@ export default function Wallet() {
     }
     
     return(
-        <div style={{width:'450px', height:'600px', border:'1px solid white', borderRadius:'10px', backgroundColor:'black'}}>
+        <div style={{width:'400px', height:'600px', border:'1px solid white', borderRadius:'10px', backgroundColor:'black'}}>
           <div id="connectCover">
               <div align='center'>
                   <br/>
@@ -138,7 +137,7 @@ export default function Wallet() {
                     <div style={{display:'flex', justifyContent: 'center', paddingBottom:'20px'}}>
                       <p style={{fontSize: '9px', marginRight:'5px'}} id='blinkable'>{address}</p>
                       <CopyToClipboard text={address}>
-                        <img onClick={blink} style={{width: '10px', height: '10px', cursor:'pointer'}} src={copyIcon}/>
+                        <img alt='' onClick={blink} style={{width: '10px', height: '10px', cursor:'pointer'}} src={copyIcon}/>
                       </CopyToClipboard>
                     </div>
                     :
@@ -152,7 +151,7 @@ export default function Wallet() {
           </div>
           <div align='center' style={{marginTop:'30%'}}>
                 
-                <h5>{balance} ALGO</h5>
+                <h5 style={{paddingTop:'40px'}}>{balance} ALGO</h5>
                 
                 <div style={{paddingTop:'20px', maxWidth:'350px', display:'flex', justifyContent:'center'}}>
                     

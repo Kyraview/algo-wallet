@@ -1,0 +1,16 @@
+.infoDoc h5 {
+    color:black;
+    width:380px;
+    padding-top:20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size:48px;
+    text-align: left;
+}
+
+.infoDoc p {
+    color:black;
+    width:380px;
+    padding-top:20px;
+    font-family: 'Open Sans', sans-serif;
+    text-align: left;
+}

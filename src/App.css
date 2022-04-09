@@ -6,3 +6,34 @@
   width: 50px;
   font-size: 12px;
 }
+
+.footer {
+  background-color: black;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  color: white;
+  font-size: 15px;
+  text-align: center;
+}
+
+.donateAlert{
+  width: 700px!important;
+  align-self: center!important;
+  text-align: center!important;
+  position: absolute!important;
+  left: 0vw!important;
+  transform: translateX(-15%)!important;
+  overflow-wrap: break-word;
+}
+
+body{
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 700px) {
+  .donateAlert {
+    width:98vw!important;
+    transform: translateX(1vw)!important;
+  }
+}
