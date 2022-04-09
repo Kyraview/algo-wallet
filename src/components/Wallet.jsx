@@ -22,7 +22,6 @@ export default function Wallet() {
     const [receive, set_receive] = useState('');
     const [send, set_send] = useState('');
     const [testnet, set_testnet] = useState(false);
-    const [current_interval, set_current_interval] = useState(null);
     const [settings, set_settings] = useState(false);
     useInterval(async()=> await getBalance(), 2000);
     const displayKey = async () => {
@@ -31,7 +30,7 @@ export default function Wallet() {
           await window.ethereum.request({
             method: 'wallet_invokeSnap',
             params: ['npm:algorand', {
-              method: 'display_mnemonic'
+              method: 'displayMnemonic'
             }]
           })
         } catch (err) {
@@ -41,14 +40,19 @@ export default function Wallet() {
     }
     const connect_func = async () => {
         console.log("here");
-        await window.ethereum.request({
-            method: 'wallet_enable',
-            params: [{
-              wallet_snap: { ["npm:algorand"]: {} },
-            }]
-          })
-        await getAddress();
-        
+        try{
+          await window.ethereum.request({
+              method: 'wallet_enable',
+              params: [{
+                wallet_snap: { ["npm:algorand"]: {} },
+              }]
+            })
+          await getAddress();
+        } catch (err) {
+          alert("this app requires the metamask flask extension to be installed at the moment")
+          return null;
+        }
+
         set_connected(true);
         slideup();
     }
@@ -66,14 +70,11 @@ export default function Wallet() {
     }
     
     const getBalance = async () => {
-      console.log("getting balance");
-      console.log("testnet: " + testnet);
-      console.log("current interval is : ", current_interval);
       
         let bal = await window.ethereum.request({
             method: 'wallet_invokeSnap',
             params: ["npm:algorand", {
-              method: 'returnBalance',
+              method: 'getBalance',
               testnet: testnet,
             }]
           })
