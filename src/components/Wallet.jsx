@@ -30,7 +30,7 @@ export default function Wallet() {
           await window.ethereum.request({
             method: 'wallet_invokeSnap',
             params: ['npm:algorand', {
-              method: 'display_mnemonic'
+              method: 'displayMnemonic'
             }]
           })
         } catch (err) {
@@ -78,7 +78,7 @@ export default function Wallet() {
         let bal = await window.ethereum.request({
             method: 'wallet_invokeSnap',
             params: ["npm:algorand", {
-              method: 'returnBalance',
+              method: 'getBalance',
               testnet: testnet,
             }]
           })
