@@ -22,6 +22,7 @@ export default function Wallet() {
     const [send, set_send] = useState('');
     const [testnet, set_testnet] = useState(false);
     const [settings, set_settings] = useState(false);
+    const [transactionScreen, setTransactionScreen] = useState(true);
     useInterval(async()=> await getBalance(), 2000);
     const displayKey = async () => {
       console.log("here")
