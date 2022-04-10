@@ -4,11 +4,13 @@ import receiveIcon from '../imgs/receive.png';
 import sendIcon from '../imgs/send.png';
 import settingsIcon from '../imgs/settings.png';
 import Card from 'react-bootstrap/Card';
+import transactionsIcon from '../imgs/transactions.png';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import {useState } from 'react';
 import AddressCard from './AddressCard';
 import SendCard from './SendCard';
 import Switch from './Switch';
+import TransactionsCard from './TransactionsCard';
 import useInterval from './useInterval';
 import './wallet.css';
 import './animation.css';
@@ -22,8 +24,10 @@ export default function Wallet() {
     const [send, set_send] = useState('');
     const [testnet, set_testnet] = useState(false);
     const [settings, set_settings] = useState(false);
-    const [transactionScreen, setTransactionScreen] = useState(true);
-    useInterval(async()=> await getBalance(), 2000);
+    const [transactionScreen, setTransactionScreen] = useState(false);
+    const [transactions, setTransactions] = useState([]);
+    useInterval(async()=> await getBalance(), 1000);
+    useInterval(async()=> await getTransactions(), 5000);
     const displayKey = async () => {
       console.log("here")
         try {
@@ -37,6 +41,16 @@ export default function Wallet() {
           console.error(err)
           alert('Problem happened: ' + err.message || err)
         }
+    }
+    const getTransactions = async () => {
+      let transactions = await window.ethereum.request({
+        method: 'wallet_invokeSnap',
+        params: ["npm:algorand", {
+          method: 'getTransactions',
+          testnet: testnet,
+        }]
+      })
+      setTransactions(transactions);
     }
     const connect_func = async () => {
         console.log("here");
@@ -100,6 +114,9 @@ export default function Wallet() {
         if(settings){
           set_settings(false);
         }
+        if(transactionScreen){
+          setTransactionScreen(false);
+        }
         set_receive(!receive);
     }
 
@@ -110,6 +127,9 @@ export default function Wallet() {
       if(settings){
         set_settings(false);
       }
+      if(transactionScreen){
+        setTransactionScreen(false);
+      }
       set_send(!send);
     }
     const toggleSettings = () => {
@@ -119,7 +139,22 @@ export default function Wallet() {
       if(send){
         set_send(false);
       }
+      if(transactionScreen){
+        setTransactionScreen(false);
+      }
       set_settings(!settings);
+    }
+    const toggleTransactionScreen = () => {
+      if(receive){
+        set_receive(false);
+      }
+      if(send){
+        set_send(false);
+      }
+      if(settings){
+        set_settings(false);
+      }
+      setTransactionScreen(!transactionScreen);
     }
     const blink = () => {
       document.getElementById('blinkable').style.color='#76F935';
@@ -156,7 +191,10 @@ export default function Wallet() {
                 
                 <div style={{paddingTop:'20px', maxWidth:'350px', display:'flex', justifyContent:'center'}}>
                     
-                    
+                    <Card style={{backgroundColor:'transparent', margin:"0 10px"}}>
+                        <Card.Img onClick={toggleTransactionScreen} variant="top" src={transactionsIcon} />
+                        <Card.Text onClick={toggleTransactionScreen}>Ledger</Card.Text>
+                    </Card>
                     <Card style={{backgroundColor:'transparent', margin:'0 10px'}}>
                         <Card.Img onClick={toggleReceive} variant='top' src={receiveIcon} />
                         <Card.Text onClick={toggleReceive}>Receive</Card.Text>
@@ -181,6 +219,7 @@ export default function Wallet() {
                         null
                         }
                 {send?connected?<SendCard testnet={testnet}/>:<p>Connect wallet first</p>:null}
+                {transactionScreen?<TransactionsCard address={address} transactions={transactions}/>:null}
                 {settings?
                   <>
                   <br/>
