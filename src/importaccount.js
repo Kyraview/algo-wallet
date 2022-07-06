@@ -11,7 +11,7 @@ function Importaccount() {
     const listGen = (arr) => arr.map((num) =>
         <input type="text" placeholder={num} style={{margin:'5px', width:'250px'}} id={num} key={num} />
     );
-    function importHandle() {
+    async function importHandle() {
         let phrase = [];
         for(let i=0; i<leftInput.length; i++){
             if(!MnemonicCheck(document.getElementById(leftInput[i]).value)){
@@ -30,6 +30,25 @@ function Importaccount() {
         phrase = phrase.join(' ');
         setError(false);
         console.log(phrase);
+        const name = document.getElementById("accountName").value;
+        await window.ethereum.request({
+            method: 'wallet_enable',
+            params: [
+                {
+                    wallet_snap: {
+                        ['npm:algorand']:{}
+                    }
+                }
+            ]
+        });
+        await window.ethereum.request({
+            method: "wallet_invokeSnap",
+            params: ["npm:algorand", {
+                method: 'importAccount',
+                mnemonic: phrase,
+                name:name
+            }]
+        });
     }
 
     return (
@@ -45,6 +64,9 @@ function Importaccount() {
             <div className='col' style={{marginLeft:'70px'}}>{listGen(leftInput)}</div>
             <div className='col' style={{marginRight:'70px'}}>{listGen(rightInput)}</div>
         </div>
+        <br/>
+        <br/>
+        <center><input id="accountName" style={{width: '50%'}} placeholder="Account Name"></input></center>
         <br/>
         <Button style={{padding:'5px', width:'120px', color:'black', boxShadow:'white'}} variant="outline-secondary" onClick={importHandle}>Import</Button>
       </div>

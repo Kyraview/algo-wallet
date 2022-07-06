@@ -1,7 +1,6 @@
 import Home from './home';
 import Docs from './docs';
 import Importaccount from './importaccount';
-import Footer from './components/footer';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import {Enable,Algod,Indexer,Post,SignAndPost,Sign} from './docsPages/sdkdocs';
@@ -23,7 +22,6 @@ export default function App() {
     </Route>
     <Route path='importaccount' element={<Importaccount />} />
   </Routes>
-  <Footer />
   </div>
   );
 }
