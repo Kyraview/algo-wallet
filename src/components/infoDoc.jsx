@@ -1,6 +1,7 @@
 import './infoDoc.css';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+import {Link} from 'react-router-dom';
 
 export default function InfoDoc() {
     return(
@@ -21,9 +22,8 @@ export default function InfoDoc() {
                     <p>SwapAlgo (In Progress):<br/><a href='https://algoswap.netlify.app/'>Website</a><br/><a href='https://github.com/TheRealDeathEye/algo-swap'>GitHub</a></p>
                     <p>Proof of Concept:<br/><a href='https://snapalgo02.paulfears.repl.co/'>Website</a><br/><a href='https://replit.com/@paulfears/snapalgo02#index.html'>Code</a></p>
                 </Tab>
-                <Tab eventKey="Develop" title="Develop">
-                    <h5 style={{fontSize:'48px'}}>Development</h5>
-                    <p>Since SnapAlgo is a developer framework, we will be rolling out developer documentation in the coming weeks. We strive to make development with SnapAlgo as seamless as possible, so in the meantime, you can find our code at <a href='https://www.npmjs.com/package/algorand'>npm:algorand</a> or <a href='https://github.com/paulfears/snapalgo'>GitHub</a>.</p>
+                <Tab eventKey="Docs" title="Docs">
+                    <p>We strive to make development with SnapAlgo as seamless as possible, you can see our documentation at <Link to="/docs">SnapAlgo Docs</Link>, or you can find our code at <a href='https://www.npmjs.com/package/algorand'>npm:algorand</a> or <a href='https://github.com/paulfears/snapalgo'>GitHub</a>.</p>
                 </Tab>
             </Tabs>
         </div>

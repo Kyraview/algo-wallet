@@ -31,6 +31,9 @@ body{
   overflow-x: hidden;
 }
 
+.sidebar {
+  height: 78.5vh !important;
+}
 
 @media screen and (max-width: 700px) {
   .donateAlert {
