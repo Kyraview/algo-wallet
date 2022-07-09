@@ -1,6 +1,7 @@
 import Home from './home';
 import Docs from './docs';
 import Importaccount from './importaccount';
+import Receive from './receive';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import {Enable,Algod,Indexer,Post,SignAndPost,Sign} from './docsPages/sdkdocs';
@@ -21,6 +22,7 @@ export default function App() {
       <Route path="sign" element={<Sign />} />
     </Route>
     <Route path='importaccount' element={<Importaccount />} />
+    <Route path='receive' element={<Receive />} />
   </Routes>
   </div>
   );

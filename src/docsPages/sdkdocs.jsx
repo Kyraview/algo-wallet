@@ -7,8 +7,13 @@ export function Quickstart() {
     <div>
         <h1>Quickstart</h1>
 
+        <p>Installing the SnapAlgo library is required for integration into your webapp.</p>
         <div style={{padding:'40px'}}>
             <SyntaxHighlighter language="javascript" style={docco}>{'npm i algorand\nyarn add algorand'}</SyntaxHighlighter>
+        </div>
+        <p>Using Javascript, import the SnapAlgo library.</p>
+        <div style={{padding:'40px'}}>
+            <SyntaxHighlighter language="javascript" style={docco}>{'const snapalgo = require(\'algorand\');//NodeJS\nimport \'algorand\' as \'snapalgo\';//raw JS'}</SyntaxHighlighter>
         </div>
     </div>
     );

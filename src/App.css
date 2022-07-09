@@ -35,6 +35,47 @@ body{
   height: 78.5vh !important;
 }
 
+.snapAlgoDefaultButton {
+    
+  text-align: center;
+  width: 180px;
+  font-size: 20px;
+  font-family: 'Kantumruy Pro', sans-serif;
+  color: white;
+  cursor: pointer;
+  margin: 2px;
+  height: 50px;
+  text-align:center;
+  border: none;
+  background-position: 0% 0%;
+  background-size: 300% 300%;
+  
+  background-image: radial-gradient(circle at 110%,  #F00699 60%,  #963beb 20% );
+  
+
+  border-radius: 10px;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.snapAlgoDefaultButton:hover {
+  background-position: 70% -0%;
+  background-size: 500% 500%;
+  color: white;
+  transform: scale(1.05);
+  moz-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+
+.snapAlgoDefaultButton.alt{
+  background-image: radial-gradient(circle at 110%,  #F00699 60%,  #0ba0e5 20% );
+}
+
 @media screen and (max-width: 700px) {
   .donateAlert {
     width:98vw!important;

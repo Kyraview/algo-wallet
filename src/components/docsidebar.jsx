@@ -8,6 +8,7 @@ function DocSidebar() {
     <div className='sidebar'>
     <ProSidebar>
     <Menu iconShape="square">
+        <MenuItem><Link to="/">Homepage</Link></MenuItem>
         <MenuItem><Link to="/docs">Quickstart</Link></MenuItem>
         <SubMenu title="SnapAlgoSDK">
           <MenuItem><Link to="enable">enable</Link></MenuItem>
