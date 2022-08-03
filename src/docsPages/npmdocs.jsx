@@ -4,7 +4,7 @@ import '../docs.css';
 
 export function NpmAppOptIn() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>AppOptIn</h1>
 
             <h5>appIndex: a Uint64 that is the index of the target application to opt into to</h5>
@@ -35,7 +35,7 @@ export function NpmAppOptIn() {
 
 export function NpmAssetOptIn() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>AssetOptIn</h1>
 
             <h5>assetIndex: a Uint64 that is the index of the target asset to opt into to</h5>
@@ -66,7 +66,7 @@ export function NpmAssetOptIn() {
 
 export function NpmAssetOptOut() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>AssetOptOut</h1>
 
             <h5>assetIndex: a Uint64 that is the index of the target asset to opt out of</h5>
@@ -97,7 +97,7 @@ export function NpmAssetOptOut() {
 
 export function NpmclearAccounts() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>clearAccounts</h1>
 
             <p>returns boolean depending on if the imported accounts have been cleared or not</p>
@@ -125,7 +125,7 @@ export function NpmclearAccounts() {
 
 export function NpmcreateAcct() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>createAccount</h1>
 
             <h5>name: a string that is the desired name of the new account</h5>
@@ -156,7 +156,7 @@ export function NpmcreateAcct() {
 
 export function NpmdisplayBalance() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>displayBalance</h1>
 
             <p>displays the current account's balance in the Metamask window and returns true if approved</p>
@@ -184,7 +184,7 @@ export function NpmdisplayBalance() {
 
 export function NpmdisplayMnemonic() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>displayMnemonic</h1>
 
             <p>returns a boolean depending on if the mnemonic phrase of the current account is approved to display in the Metamask window</p>
@@ -212,7 +212,7 @@ export function NpmdisplayMnemonic() {
 
 export function NpmEnable() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>enable</h1>
 
             <h5>opts: an optional object parameter which can take two properties, genisisId and/or genesisHash. the genesisId is an ascii string representing the target network. the genesisHash is a base64 string representing a 32-byte genesis hash in which is the hash of the same target network</h5>
@@ -238,7 +238,7 @@ export function NpmEnable() {
 
 export function NpmencodeTransaction() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>encodeTransaction</h1>
 
             <h5>txn: the target transaction object to encoded into  base64</h5>
@@ -268,7 +268,7 @@ export function NpmencodeTransaction() {
 
 export function NpmencodeTransactions() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>encodeTransactions</h1>
 
             <h5>txns: an array of the target transaction objects to encode into base64</h5>
@@ -299,7 +299,7 @@ export function NpmencodeTransactions() {
 
 export function NpmgetAccount() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>getAccount</h1>
 
             <p>returns an object of the current account</p>
@@ -327,7 +327,7 @@ export function NpmgetAccount() {
 
 export function NpmgetAccounts() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>getAccounts</h1>
 
             <p>returns an object of the accounts in the generated keytree with their properties being: addr (String), name (String), path (Uint64), and type (String)</p>
@@ -355,7 +355,7 @@ export function NpmgetAccounts() {
 
 export function NpmgetAddress() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>getAddress</h1>
 
             <p>returns a string of the current account address</p>
@@ -383,7 +383,7 @@ export function NpmgetAddress() {
 
 export function NpmgetAssetById() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>getAssetById</h1>
 
             <h5>assetIndex: a Uint64 that is the index of the target asset to get</h5>
@@ -414,7 +414,7 @@ export function NpmgetAssetById() {
 
 export function NpmgetAssets() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>getAssets</h1>
 
             <p>returns an array of all opted in assets in the current account</p>
@@ -442,7 +442,7 @@ export function NpmgetAssets() {
 
 export function NpmgetBalance() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>getBalance</h1>
 
             <p>returns the amount of Algos that the current account has</p>
@@ -470,7 +470,7 @@ export function NpmgetBalance() {
 
 export function NpmgetCurrentAccount() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>getCurrentAccount</h1>
 
             <p>returns an object of the current account with its properties being: addr (String) and sk (Uint8Array)</p>
@@ -498,7 +498,7 @@ export function NpmgetCurrentAccount() {
 
 export function NpmgetTxns() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>getTransactions</h1>
 
             <p>returns an array of previously signed and posted transactions of the current account</p>
@@ -528,7 +528,7 @@ export function NpmgetTxns() {
 
 export function NpmimportAcct() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>importAccount</h1>
 
             <h5>mnemonic: a string that is the 25-word mnemonic phrase of your desired account to import with each word separated by a space<br/>
@@ -562,7 +562,7 @@ export function NpmimportAcct() {
 
 export function NpmisValidAddress() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>isValidAddress</h1>
 
             <h5>address: a string of the desired account to be checked</h5>
@@ -593,7 +593,7 @@ export function NpmisValidAddress() {
 
 export function NpmpostTxns() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>postTxns</h1>
 
             <h5>stxns: an array of signed transaction objects to post. the required element of the object is txn, a string that is a base64 encoding of the canonical msgpack encoding of a signed transaction</h5>
@@ -624,7 +624,7 @@ export function NpmpostTxns() {
 
 export function NpmsecureReceive() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>secureReceive</h1>
 
             <p>returns a string of the current account address</p>
@@ -652,7 +652,7 @@ export function NpmsecureReceive() {
 
 export function NpmsetAcct() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>setAccount</h1>
 
             <h5>address: a string of the desired account to be set as the current account</h5>
@@ -683,7 +683,7 @@ export function NpmsetAcct() {
 
 export function NpmsignAndPostTxns() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>signAndPostTxns</h1>
 
             <h5>txns: an array of WalletTransaction objects to sign and post. the required element of the object is txn, a string that is a base64 encoding of the canonical msgpack encoding of a transaction</h5>
@@ -714,7 +714,7 @@ export function NpmsignAndPostTxns() {
 
 export function NpmsignData() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>signData</h1>
 
             <h5>data: a Uint8Array of the desired data to sign</h5>
@@ -744,7 +744,7 @@ export function NpmsignData() {
 
 export function NpmsignLogicSig() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>signLogicSig</h1>
 
             <h5>logicSigAccount: the base64 encoding of the canonical msgpack encoding of the target logic sig account</h5>
@@ -775,7 +775,7 @@ export function NpmsignLogicSig() {
 
 export function NpmsignTxns() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>signTxns</h1>
 
             <h5>txns: an array of WalletTransaction objects to sign. the required element of the object is txn, a string that is a base64 encoding of the canonical msgpack encoding of a transaction</h5>
@@ -806,7 +806,7 @@ export function NpmsignTxns() {
 
 export function Npmtransfer() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>transfer</h1>
 
             <h5>to: a string of the target receiving address<br/>
@@ -840,7 +840,7 @@ export function Npmtransfer() {
 
 export function NpmtransferAsset() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>transferAsset</h1>
 
             <h5>assetIndex: a Uint64 that is the index of the target asset to transfer<br/>
@@ -874,7 +874,7 @@ export function NpmtransferAsset() {
 
 export function Npmuint8ArraytoBase64() {
     return(
-        <div>
+        <div className='docpage'>
             <h1>Uint8ArrayToBase64</h1>
 
             <h5>array: the target Uint8Array to be converted to base 64</h5>

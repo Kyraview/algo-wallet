@@ -13,13 +13,12 @@ export default function InfoDoc() {
                 </Tab>
                 <Tab eventKey="installation" title="Installation">
                     <h5 style={{fontSize:'48px'}}>Requires MetaMask Flask</h5>
-                    <p>1. Create a new Chrome account without MetaMask installed; or if MetaMask is currently installed, uninstall it and install MetaMask Flask.</p>
+                    <p>1. Create a new Chrome account without MetaMask installed; or if MetaMask is currently installed, uninstall it and install MetaMask Flask. (This will remove all imported accounts from MetaMask!)</p>
                     <p>2. Install MetaMask Flask at <a href='https://metamask.io/flask/'>https://metamask.io/flask/</a></p>
                     <p>3. Press Connect and follow the prompts.</p>
                 </Tab>
                 <Tab eventKey="apps" title="Apps">
                     <h5 style={{fontSize:'48px'}}>Applications</h5>
-                    <p>SwapAlgo (In Progress):<br/><a href='https://algoswap.netlify.app/'>Website</a><br/><a href='https://github.com/TheRealDeathEye/algo-swap'>GitHub</a></p>
                     <p>Proof of Concept:<br/><a href='https://snapalgo02.paulfears.repl.co/'>Website</a><br/><a href='https://replit.com/@paulfears/snapalgo02#index.html'>Code</a></p>
                 </Tab>
                 <Tab eventKey="Docs" title="Docs">

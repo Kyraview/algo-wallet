@@ -35,6 +35,10 @@ body{
   height: 83vh !important;
 }
 
+.docpage {
+  height: 77vh !important;
+}
+
 .snapAlgoDefaultButton {
     
   text-align: center;

@@ -4,7 +4,7 @@ import Importaccount from './importaccount';
 import Receive from './receive';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import {Algod,Base64Decode,Base64Encode,Enable,EncodeTxn,EZsign,EZsignAndPost,EZsignSmartSig,Indexer,Post,SignAndPost,Sign} from './docsPages/sdkdocs';
+import {Algod,Base64Decode,Base64Encode,Enable,EncodeTxn,EZsign,EZsignAndPost,EZsignSmartSig,GettingStarted,Indexer,Post,SignAndPost,Sign,TxnTutorial} from './docsPages/sdkdocs';
 import {NpmAppOptIn,NpmAssetOptIn,NpmAssetOptOut,NpmclearAccounts,NpmcreateAcct,NpmdisplayBalance,NpmdisplayMnemonic,NpmEnable,NpmencodeTransaction,NpmencodeTransactions,NpmgetAccount,NpmgetAccounts,NpmgetAddress,NpmgetAssetById,NpmgetAssets,NpmgetBalance,NpmgetCurrentAccount,NpmgetTxns,NpmimportAcct,NpmisValidAddress,NpmpostTxns,NpmsecureReceive,NpmsetAcct,NpmsignAndPostTxns,NpmsignData,NpmsignLogicSig,NpmsignTxns,Npmtransfer,NpmtransferAsset,Npmuint8ArraytoBase64} from './docsPages/npmdocs';
 
 export default function App() {
@@ -23,10 +23,12 @@ export default function App() {
       <Route path="ezsign" element={<EZsign />} />
       <Route path="ezsignandpost" element={<EZsignAndPost />} />
       <Route path="ezsignsmartsig" element={<EZsignSmartSig />} />
+      <Route path="gettingstarted" element={<GettingStarted />} />
       <Route path="indexer" element={<Indexer />} />
       <Route path="post" element={<Post />} />
       <Route path="signandpost" element={<SignAndPost />} />
       <Route path="sign" element={<Sign />} />
+      <Route path="txntutorial" element={<TxnTutorial />} />
 
       <Route path="npmappoptin" element={<NpmAppOptIn />} />
       <Route path="npmassetoptin" element={<NpmAssetOptIn />} />
