@@ -55,7 +55,7 @@ export default function Receive() {
         </div></div>:
         <div style={{height:'100vh', display:'flex', flexDirection:'column', justifyContent:'center', background:'#222'}}>
             <div style={{display:'flex', flexDirection:'row', justifyContent:'center'}}>
-            <button className='snapAlgoDefaultButton alt' onClick={showAddress}>Show Address</button>
+            <button className='receiveButton alt' onClick={showAddress}>Show Address</button>
             </div>
         </div>
     );
