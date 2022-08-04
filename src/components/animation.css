@@ -1,11 +1,9 @@
 
 #connectCover{
-    width: 400px;
-    height: 600px;
+    width: 100vw;
+    height: 100vh;
     z-index: 1;
     background-color: black;
-    transform: translate(-1px,-1px);
-    border-radius: 10px;
     position: absolute;
     background: linear-gradient(to right, #963beb, #830bba, #c00fb4, #e9d596);
     background-size: 370% 370%!important;
@@ -16,10 +14,4 @@
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
-}
-
-@keyframes slideUp {
-    to{
-        height:18%;
-    }
 }

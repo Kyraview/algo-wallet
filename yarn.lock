@@ -9226,9 +9226,9 @@ slash@^4.0.0:
   integrity sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==
 
 snapalgo-sdk@^1.0.11:
-  version "1.0.17"
-  resolved "https://registry.yarnpkg.com/snapalgo-sdk/-/snapalgo-sdk-1.0.17.tgz#8b4c8b2793697bdc960d797796f655ad022c4a77"
-  integrity sha512-ekn9FUXPU61sLEAkN0iIWCbo/UxgDSa+VN2sgZwF4WhQRXgsHgArjb0OmFjmk2E7NUYe9F/oirzD+N+ghtPZeQ==
+  version "1.0.18"
+  resolved "https://registry.yarnpkg.com/snapalgo-sdk/-/snapalgo-sdk-1.0.18.tgz#e4ef9031c88023d97c02a89dd54525a6f286fdcf"
+  integrity sha512-QJRzWKA1JiEXew0NuPwOJgqK8eorHxLQ6l8s1ci0OfPCyOchsO7jy9GAFivsl+HEAhvyZTBGn+/uxl0a9m6LHw==
   dependencies:
     algo-msgpack-with-bigint "^2.1.1"
     base64-arraybuffer "^1.0.2"
