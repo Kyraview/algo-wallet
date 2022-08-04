@@ -1,15 +1,19 @@
+body{
+  overflow-x: hidden;
+}
+
 .card{
   width: 50px;
   font-size: 12px;
 }
 
-body{
-  overflow-x: hidden;
+.code-contain {
+  padding: 10px 10px 10px 40px;
 }
 
 .infoDoc h5 {
   color:white;
-  width:70%;
+  width:80%;
   padding-top:10px;
   font-family: 'Open Sans', sans-serif;
   font-size:48px;
@@ -37,7 +41,12 @@ body{
 
 .infoimg{
   width:40vw;
-  margin: auto;
+  display:flex;
+  justify-content: center;
+}
+
+.infoimg img {
+  object-fit: contain;
 }
 
 .nav-tabs .nav-link {
@@ -61,6 +70,13 @@ body{
   font-size: 250%;
   font-family: 'Open Sans', sans-serif;
   padding:40px 40px 20px 40px;
+}
+
+.docpage h3 {
+  color:black;
+  font-size: 180%;
+  font-family: 'Open Sans', sans-serif;
+  padding:20px 20px 10px 50px;
 }
 
 .docpage h5 {

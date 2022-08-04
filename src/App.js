@@ -3,12 +3,28 @@ import Docs from './docs';
 import Importaccount from './importaccount';
 import Receive from './receive';
 import './App.css';
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import {Algod,Base64Decode,Base64Encode,Enable,EncodeTxn,EZsign,EZsignAndPost,EZsignSmartSig,GettingStarted,Indexer,Post,SignAndPost,Sign,TxnTutorial} from './docsPages/sdkdocs';
-import {NpmAppOptIn,NpmAssetOptIn,NpmAssetOptOut,NpmclearAccounts,NpmcreateAcct,NpmdisplayBalance,NpmdisplayMnemonic,NpmEnable,NpmencodeTransaction,NpmencodeTransactions,NpmgetAccount,NpmgetAccounts,NpmgetAddress,NpmgetAssetById,NpmgetAssets,NpmgetBalance,NpmgetCurrentAccount,NpmgetTxns,NpmimportAcct,NpmisValidAddress,NpmpostTxns,NpmsecureReceive,NpmsetAcct,NpmsignAndPostTxns,NpmsignData,NpmsignLogicSig,NpmsignTxns,Npmtransfer,NpmtransferAsset,Npmuint8ArraytoBase64} from './docsPages/npmdocs';
+import {Algod,Base64Decode,Base64Encode,Enable,EncodeTxn,EZsign,EZsignAndPost,EZsignSmartSig,Indexer,Post,SignAndPost,Sign,TxnTutorial} from './components/sdkdocs';
+import {NpmAppOptIn,NpmAssetOptIn,NpmAssetOptOut,NpmclearAccounts,NpmcreateAcct,NpmdisplayBalance,NpmdisplayMnemonic,NpmEnable,NpmencodeTransaction,NpmencodeTransactions,NpmgetAccount,NpmgetAccounts,NpmgetAddress,NpmgetAssetById,NpmgetAssets,NpmgetBalance,NpmgetCurrentAccount,NpmgetTxns,NpmimportAcct,NpmisValidAddress,NpmpostTxns,NpmsecureReceive,NpmsetAcct,NpmsignAndPostTxns,NpmsignData,NpmsignLogicSig,NpmsignTxns,Npmtransfer,NpmtransferAsset,Npmuint8ArraytoBase64} from './components/npmdocs';
+const snapalgosdk = require('snapalgo-sdk');
+var snapalgo;
 
 export default function App() {
   document.body.style = 'background: white;'
+
+  useEffect(() => {
+    enable();
+  });
+
+  const enable = async () => {
+    try {
+      snapalgo = new snapalgosdk.Wallet;
+    } catch (err) {
+      console.error(err)
+      alert('Problem happened: ' + err.message || err)
+    }
+  }
   
   return(
   <div className='App'>
@@ -23,7 +39,6 @@ export default function App() {
       <Route path="ezsign" element={<EZsign />} />
       <Route path="ezsignandpost" element={<EZsignAndPost />} />
       <Route path="ezsignsmartsig" element={<EZsignSmartSig />} />
-      <Route path="gettingstarted" element={<GettingStarted />} />
       <Route path="indexer" element={<Indexer />} />
       <Route path="post" element={<Post />} />
       <Route path="signandpost" element={<SignAndPost />} />
