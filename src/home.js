@@ -53,7 +53,7 @@ function Home() {
           <Tab eventKey="import" title="Import">
             <div style={{display:'flex'}}>
               <div className='infotab'>
-              <Link to="/docs"><button className='receiveButton alt' style={{margin:'10px 10px 2px 0'}}>Import Account</button></Link>
+              <Link to="/importaccount"><button className='receiveButton alt' style={{margin:'10px 10px 2px 0'}}>Import Account</button></Link>
               <p>You have the ability to import accounts securely with SnapAlgo.</p>
               </div>
             </div>
