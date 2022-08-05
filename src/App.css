@@ -35,14 +35,15 @@ body{
 .infotab{
   background-color: #963beb70;
   padding: 50px;
-  width: 60vw;
+  width: 55vw;
   border-radius: 25px;
 }
 
 .infoimg{
-  width:40vw;
+  width:35vw;
   display:flex;
   justify-content: center;
+  margin:auto;
 }
 
 .infoimg img {
