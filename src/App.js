@@ -1,7 +1,3 @@
-import Home from './home';
-import Docs from './docs';
-import Importaccount from './importaccount';
-import Receive from './receive';
 import './App.css';
 import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';

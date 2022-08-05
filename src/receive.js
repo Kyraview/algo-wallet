@@ -47,7 +47,7 @@ export default function Receive() {
         </div>
         <div className="col">
         <CopyToClipboard text={address}>
-        <p id="blinkAddress" onClick={blink} style={{wordBreak:'break-all', width:'80%', fontSize:'12px', transform:'translateY(50%)', position:'absolute', padding:'0 10px 0 0', color:'white', textAlign:'center'}}>
+        <p id="blinkAddress" onClick={blink} style={{wordBreak:'break-all', width:'80%', fontSize:'12px', transform:'translateY(50%)', padding:'0 10px 0 0', color:'white', textAlign:'center'}}>
             {address}
             <img alt='' onClick={blink} style={{width:'10%', marginLeft:'5px', cursor:'pointer'}} src={copyIcon}/>
         </p>

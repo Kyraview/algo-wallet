@@ -4154,7 +4154,7 @@ diff-sequences@^27.5.1:
   version "27.5.1"
   resolved "https://registry.yarnpkg.com/diff-sequences/-/diff-sequences-27.5.1.tgz#eaecc0d327fd68c8d9672a1e64ab8dccb2ef5327"
   integrity sha512-k1gCAXAsNgLwEL+Y8Wvl+M6oEFj5bgazfZULpS5CneoPPXRaCCW7dm+q21Ky2VEE5X+VeRDBVg1Pcvvsr4TtNQ==
-  
+
 diffie-hellman@^5.0.0:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/diffie-hellman/-/diffie-hellman-5.0.3.tgz#40e8ee98f55a2149607146921c63e1ae5f3d2875"
@@ -8207,7 +8207,6 @@ qrcode@^1.5.0:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/qrcode/-/qrcode-1.5.1.tgz#0103f97317409f7bc91772ef30793a54cd59f0cb"
   integrity sha512-nS8NJ1Z3md8uTjKtP+SGGhfqmTCs5flU/xR623oI0JX+Wepz9R8UrRVCTBTJm3qGw3rH6jJ6MUHjkDx15cxSSg==
-
   dependencies:
     dijkstrajs "^1.0.1"
     encode-utf8 "^1.0.3"
@@ -9227,9 +9226,9 @@ slash@^4.0.0:
   integrity sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==
 
 snapalgo-sdk@^1.0.11:
-  version "1.0.18"
-  resolved "https://registry.yarnpkg.com/snapalgo-sdk/-/snapalgo-sdk-1.0.18.tgz#e4ef9031c88023d97c02a89dd54525a6f286fdcf"
-  integrity sha512-QJRzWKA1JiEXew0NuPwOJgqK8eorHxLQ6l8s1ci0OfPCyOchsO7jy9GAFivsl+HEAhvyZTBGn+/uxl0a9m6LHw==
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/snapalgo-sdk/-/snapalgo-sdk-1.0.19.tgz#c59759e1aa6dcca751b3d7ae8a984ac69cd9332c"
+  integrity sha512-ky6vriRjZVMiYbaKEPXxx75dZCttATxRlGlBY8Fr0/+Pde7BTver62kXxUxmZ+h2dZhX9JNUdw7YxP7U6PS22g==
   dependencies:
     algo-msgpack-with-bigint "^2.1.1"
     base64-arraybuffer "^1.0.2"
