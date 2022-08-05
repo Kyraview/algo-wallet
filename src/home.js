@@ -18,7 +18,7 @@ function Home() {
     <div style={{padding:'0px 0 0 50px'}} className='infoDoc'>
       <Tabs className="mb-3">
           <Tab eventKey="overview" title="Overview">
-            <div style={{display:'flex'}}>
+            <div className='d-flex flex-wrap'>
               <div className='infotab'>
               <h5 style={{fontSize:'48px'}}>Algorand on MetaMask</h5>
               <p>SnapAlgo is a set of methods callable on MetaMask Flask to access the Algorand blockchain, here is a wallet utilizing SnapAlgo. SnapAlgo is currently only on the developer version of MetaMask, MetaMask Flask. However, SnapAlgo will be available to the consumer version of MetaMask by the end of the year. You can download MetaMask Flask here:<br/><a href='https://metamask.io/flask/'>https://metamask.io/flask/</a></p>
