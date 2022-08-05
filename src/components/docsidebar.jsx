@@ -12,7 +12,6 @@ function DocSidebar() {
         <MenuItem><Link to="/docs">Quickstart</Link></MenuItem>
         <MenuItem><Link to="txntutorial">Signing a Transaction</Link></MenuItem>
         <SubMenu title="SnapAlgoSDK">
-          <MenuItem><Link to="gettingstarted">Getting Started</Link></MenuItem>
           <MenuItem><Link to="base64decode">base64Decode</Link></MenuItem>
           <MenuItem><Link to="base64encode">base64Encode</Link></MenuItem>
           <MenuItem><Link to="enable">enable</Link></MenuItem>
