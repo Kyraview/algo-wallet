@@ -11,12 +11,17 @@ body{
   padding: 10px 10px 10px 40px;
 }
 
+#homepage {
+  position:absolute;
+  z-index: 2;
+}
+
 .infoDoc h5 {
   color:white;
   width:80%;
   padding-top:10px;
   font-family: 'Open Sans', sans-serif;
-  font-size:48px;
+  font-size:2em;
   text-align: left;
 }
 
@@ -35,19 +40,29 @@ body{
 .infotab{
   background-color: #963beb70;
   padding: 50px;
-  width: 55vw;
+  width: 95%;
+  max-width: 900px;
   border-radius: 25px;
+  z-index: 10;
+  margin: auto;
 }
 
 .infoimg{
-  width:35vw;
+  width: 60%;
+  max-width: 400px;
   display:flex;
   justify-content: center;
   margin:auto;
+  z-index: 10;
+  padding: 20px;
 }
 
 .infoimg img {
   object-fit: contain;
+}
+
+.nav-item {
+  z-index: 10 !important;
 }
 
 .nav-tabs .nav-link {
@@ -59,7 +74,7 @@ body{
 }
 
 .sidebar {
-  height: 83vh !important;
+  height: 88vh !important;
 }
 
 .docpage {
@@ -70,14 +85,14 @@ body{
   color:black;
   font-size: 250%;
   font-family: 'Open Sans', sans-serif;
-  padding:40px 40px 20px 40px;
+  padding:0 0 15px 0;
 }
 
 .docpage h3 {
   color:black;
   font-size: 180%;
   font-family: 'Open Sans', sans-serif;
-  padding:20px 20px 10px 50px;
+  padding:10px 0;
 }
 
 .docpage h5 {
@@ -88,7 +103,7 @@ body{
 
 .docpage p {
   color:black;
-  padding:0px 0px 0px 40px;
+  padding:0;
 }
 
 .receiveButton {

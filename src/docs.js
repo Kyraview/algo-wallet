@@ -1,20 +1,44 @@
 import DocSidebar from './components/docsidebar';
 import { Routes, Route } from 'react-router-dom';
+import menuicon from './imgs/menu.svg';
 import {Quickstart,Algod,Base64Decode,Base64Encode,Enable,EncodeTxn,EZsign,EZsignAndPost,EZsignSmartSig,Indexer,Post,SignAndPost,Sign,TxnTutorial} from './components/sdkdocs';
 import {NpmAppOptIn,NpmAssetOptIn,NpmAssetOptOut,NpmclearAccounts,NpmcreateAcct,NpmdisplayBalance,NpmdisplayMnemonic,NpmEnable,NpmencodeTransaction,NpmencodeTransactions,NpmgetAccount,NpmgetAccounts,NpmgetAddress,NpmgetAssetById,NpmgetAssets,NpmgetBalance,NpmgetCurrentAccount,NpmgetTxns,NpmimportAcct,NpmisValidAddress,NpmpostTxns,NpmsecureReceive,NpmsetAcct,NpmsignAndPostTxns,NpmsignData,NpmsignLogicSig,NpmsignTxns,Npmtransfer,NpmtransferAsset,Npmuint8ArraytoBase64} from './components/npmdocs';
+import { useState, useEffect } from 'react';
 
 export default function Docs() {
+  const [showMenu, setShowMenu] = useState(window.innerWidth >= 720);
+  const [showMenuIcon, setShowMenuIcon] = useState(window.innerWidth < 720);
+  
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  }
+
+  const handleResize = () => {
+    if (window.innerWidth < 720) {
+        setShowMenu(false)
+        setShowMenuIcon(true)
+    } else {
+        setShowMenu(true)
+        setShowMenuIcon(false)
+    }
+  }
+  
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+  })
 
   return (
     <div>
-    <h1 style={{color:'black', padding:'4vh 4vh 0 4vh', fontSize:'8vh', fontFamily: 'Open Sans, sans-serif'}}>SnapAlgo Docs</h1>
-    <br/>
+    <div style={{display:'flex', height:'12vh'}} id='docsheader'>
+      <h1 style={{color:'black', padding:'4vh 2vh 4vh 4vh', fontSize:'5vh', fontFamily: 'Open Sans, sans-serif', margin:'0'}}>SnapAlgo Docs</h1>
+      <img src={menuicon} style={{width:'10%', objectFit:'contain', margin:'auto', display:showMenuIcon?'block':'none'}} alt='' onClick={toggleMenu}/>
+    </div>
     
     <div className='row' style={{height:'100%'}}>
-        <div className='col-3' id='sidebar'><DocSidebar /></div>
+        <div className='col-4' id='sidebar' style={{display:showMenu?'block':'none'}}><DocSidebar /></div>
 
-        <div className='col-9' id='maindocs' style={{paddingBottom:'20px'}}>
-        <div style={{maxWidth:'900px', width:'90%', margin:'0 25px 0 25px', overflowY:'auto', position:'relative'}} id='maindocs'>
+        <div className='col-8' id='maindocs' style={{paddingBottom:'20px', margin:'auto'}}>
+        <div style={{maxWidth:'900px', width:'100%', margin:'0', overflowY:'auto', position:'relative'}} id='maindocs'>
             <Routes id='maindocs'>
               <Route path='/' element={<Quickstart />} />
               <Route path="algod" element={<Algod />} />

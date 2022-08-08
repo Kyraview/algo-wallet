@@ -2,9 +2,8 @@
 #connectCover{
     width: 100vw;
     height: 100vh;
-    z-index: 1;
+    position:fixed;
     background-color: black;
-    position: absolute;
     background: linear-gradient(to right, #963beb, #830bba, #c00fb4, #e9d596);
     background-size: 370% 370%!important;
     animation: bggradient 20s ease-in-out infinite;
