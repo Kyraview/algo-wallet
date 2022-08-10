@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 
 function Importaccount() {
     const [error,setError] = useState(false);
+    const [errorText, setErrorText] = useState('');
     const [isMobile, setIsMobile] = useState(window.innerWidth < 720);
     const leftInput = [1,2,3,4,5,6,7,8,9,10,11,12,13];
     const rightInput = [14,15,16,17,18,19,20,21,22,23,24,25];
@@ -17,6 +18,7 @@ function Importaccount() {
         for(let i=0; i<leftInput.length; i++){
             if(!MnemonicCheck(document.getElementById(leftInput[i]).value)){
                 setError(true);
+                setErrorText('All fields must be filled with valid mnemonic words.');
                 return false;
             }
             phrase.push(document.getElementById(leftInput[i]).value);
@@ -24,32 +26,38 @@ function Importaccount() {
         for(let i=0; i<rightInput.length; i++){
             if(!MnemonicCheck(document.getElementById(rightInput[i]).value)){
                 setError(true);
+                setErrorText('All fields must be filled with valid mnemonic words.');
                 return false;
             }
             phrase.push(document.getElementById(rightInput[i]).value);
         }
         phrase = phrase.join(' ');
         setError(false);
-        console.log(phrase);
         const name = document.getElementById("accountName").value;
-        await window.ethereum.request({
-            method: 'wallet_enable',
-            params: [
-                {
-                    wallet_snap: {
-                        ['npm:algorand']:{}
+        try{
+            await window.ethereum.request({
+                method: 'wallet_enable',
+                params: [
+                    {
+                        wallet_snap: {
+                            ['npm:algorand']:{}
+                        }
                     }
-                }
-            ]
-        });
-        await window.ethereum.request({
-            method: "wallet_invokeSnap",
-            params: ["npm:algorand", {
-                method: 'importAccount',
-                mnemonic: phrase,
-                name:name
-            }]
-        });
+                ]
+            });
+            await window.ethereum.request({
+                method: "wallet_invokeSnap",
+                params: ["npm:algorand", {
+                    method: 'importAccount',
+                    mnemonic: phrase,
+                    name:name
+                }]
+            });
+            alert('Import complete!');
+        } catch (err) {
+            setError(true);
+            setErrorText(err.message);
+        }
     }
 
     const handleResize = () => {
@@ -86,7 +94,7 @@ function Importaccount() {
       <div align='center'>
         <h5 style={{fontSize:'20px'}}>Enter your 25-word mnemonic phrase:</h5>
         <br/>
-        {error?<Alert variant='danger'>All fields must be filled with valid mnemonic words.</Alert>:null}
+        {error?<Alert variant='danger'>{errorText}</Alert>:null}
         <div style={{maxWidth:'800px'}} className='row'>
             <div className='col' style={{display:isMobile?'none':'block', padding:'0'}} />
             <div className='col'>{listGen(leftInput)}</div>
