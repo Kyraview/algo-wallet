@@ -30,7 +30,7 @@ export default function Docs() {
   return (
     <div>
     <div style={{display:'flex', height:'12vh'}} id='docsheader'>
-      <h1 style={{color:'black', padding:'4vh 2vh 4vh 4vh', fontSize:'5vh', fontFamily: 'Open Sans, sans-serif', margin:'0'}}>SnapAlgo Docs</h1>
+      <h1 style={{color:'black', fontSize:'5vh', fontFamily: 'Open Sans, sans-serif', margin:'auto 15px'}}>SnapAlgo Docs</h1>
       <img src={menuicon} style={{width:'10%', objectFit:'contain', margin:'auto', display:showMenuIcon?'block':'none'}} alt='' onClick={toggleMenu}/>
     </div>
     
