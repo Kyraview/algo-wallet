@@ -4,8 +4,8 @@ import MnemonicCheck from './components/mnemonicCheck';
 import { useState, useEffect } from 'react';
 
 function Importaccount() {
-    const [error,setError] = useState(false);
-    const [errorText, setErrorText] = useState('');
+    const [error,setError] = useState('');
+    const [success,setSuccess] = useState('');
     const [isMobile, setIsMobile] = useState(window.innerWidth < 720);
     const leftInput = [1,2,3,4,5,6,7,8,9,10,11,12,13];
     const rightInput = [14,15,16,17,18,19,20,21,22,23,24,25];
@@ -13,27 +13,27 @@ function Importaccount() {
     const listGen = (arr) => arr.map((num) =>
         <input type="text" placeholder={num} style={{margin:'5px', width:'90vw', maxWidth:'250px'}} id={num} key={num} />
     );
+
     async function importHandle() {
         let phrase = [];
+        setError('');
+        setSuccess('');
+
         for(let i=0; i<leftInput.length; i++){
             if(!MnemonicCheck(document.getElementById(leftInput[i]).value)){
-                setError(true);
-                setErrorText('All fields must be filled with valid mnemonic words.');
-                return false;
+                return setError('All fields must be filled with valid mnemonic words.');
             }
             phrase.push(document.getElementById(leftInput[i]).value);
         }
         for(let i=0; i<rightInput.length; i++){
             if(!MnemonicCheck(document.getElementById(rightInput[i]).value)){
-                setError(true);
-                setErrorText('All fields must be filled with valid mnemonic words.');
-                return false;
+                return setError('All fields must be filled with valid mnemonic words.');
             }
             phrase.push(document.getElementById(rightInput[i]).value);
         }
         phrase = phrase.join(' ');
-        setError(false);
         const name = document.getElementById("accountName").value;
+
         try{
             await window.ethereum.request({
                 method: 'wallet_enable',
@@ -53,10 +53,13 @@ function Importaccount() {
                     name:name
                 }]
             });
-            alert('Import complete!');
+
+            phrase = '';
+            setSuccess('Import complete!');
+            clearForm();
+            document.getElementById("accountName").value='';
         } catch (err) {
-            setError(true);
-            setErrorText(err.message);
+            return setError('Failed to import account');
         }
     }
 
@@ -68,16 +71,22 @@ function Importaccount() {
         }
     }
 
+    const clearForm = () => {
+        for(var i=1;i<=25;i++){
+            document.getElementById(i.toString()).value = '';
+        }
+    }
+
     useEffect(() => {
         window.addEventListener("resize", handleResize);
         //autopopulation of form
         window.addEventListener('paste', async (event) => {
+            event.preventDefault();
+            
+            clearForm();
             let data = event.clipboardData.getData('text');
             data = data.split(' ');
-            event.preventDefault();
-            for(var i=1;i<=25;i++){
-                document.getElementById(i.toString()).value = '';
-            }
+            
             for(let i=1;i<=data.length;i++){
                 if(i<=25){
                     document.getElementById(i.toString()).value = data[i-1];
@@ -94,7 +103,8 @@ function Importaccount() {
       <div align='center'>
         <h5 style={{fontSize:'20px'}}>Enter your 25-word mnemonic phrase:</h5>
         <br/>
-        {error?<Alert variant='danger'>{errorText}</Alert>:null}
+        {error && <Alert variant='danger'>{error}</Alert>}
+        {success && <Alert variant='success'>{success}</Alert>}
         <div style={{maxWidth:'800px'}} className='row'>
             <div className='col' style={{display:isMobile?'none':'block', padding:'0'}} />
             <div className='col'>{listGen(leftInput)}</div>
