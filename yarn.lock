@@ -9406,10 +9406,10 @@ slash@^4.0.0:
   resolved "https://registry.yarnpkg.com/slash/-/slash-4.0.0.tgz#2422372176c4c6c5addb5e2ada885af984b396a7"
   integrity sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==
 
-snapalgo-sdk@^1.0.11:
-  version "1.0.24"
-  resolved "https://registry.yarnpkg.com/snapalgo-sdk/-/snapalgo-sdk-1.0.24.tgz#8f691af1a2af532827f5cada27382668819ed933"
-  integrity sha512-eg+oglw4MU5x5UboCjDmSpJLRIOeHknq9fQEO9f9w80adf+ypka9nJk1xNVL87frCaU/H9abFvVTVYtRtxr2Gg==
+snapalgo-sdk@^1.0.25:
+  version "1.0.25"
+  resolved "https://registry.yarnpkg.com/snapalgo-sdk/-/snapalgo-sdk-1.0.25.tgz#a2f89f363b14ef448d7406097d14df5bb9ca71f4"
+  integrity sha512-/DqFyNKl6V+9sG+/S6P+DU9k9g67mIp7JOGNeyqog+a3C7bejqsY1rgWbAFDD8jkqm3rsFJyGKI0oDqzwkCt2g==
   dependencies:
     agnostic-draggable "^1.4.5"
     algo-msgpack-with-bigint "^2.1.1"
