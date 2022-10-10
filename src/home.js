@@ -50,6 +50,7 @@ function Home() {
               <h5>Applications</h5>
               <p>More exciting applications are to come using SnapAlgo wallet.</p>
               <p>Proof of Concept:<br/><a href='https://snapalgo02.paulfears.repl.co/'>Website</a><br/><a href='https://replit.com/@paulfears/snapalgo02#index.html'>Code</a></p>
+              <p>TEAL Compiler:<br/><a href='https://dewdrops-studio.deatheye.repl.co/'>Website</a></p>
               </div>
               <div className='infoimg'></div>
             </div>
