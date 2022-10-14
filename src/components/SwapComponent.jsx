@@ -234,7 +234,7 @@ export default function SwapComponent() {
         <div style={{"backgroundColor":"#ccc", "margin":'auto'}}>
             <p style={{"margin":"auto"}}>Inputed amount is less<br/>than the minium amount</p>
         </div>
-        :loading?null:<Button id="swapButton" className="swapButton" style={{width:'150px', fontSize:'15px'}} onClick={swapToken}>Swap</Button>
+        :loading?null:<Button id="swapButton" className="swapButton" style={{width:'150px', fontSize:'14px'}} onClick={swapToken}>Swap</Button>
         }
         
         
