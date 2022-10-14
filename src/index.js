@@ -10,12 +10,14 @@ import Docs from './docs';
 import Importaccount from './importaccount';
 import Receive from './receive';
 import reportWebVitals from './reportWebVitals';
+import SwapComponent from './components/SwapComponent';
 
 ReactDOM.render(
   <BrowserRouter>
   <Routes>
     <Route path='/' element={<App />}>  
       <Route path='/' element={<Home />} />
+      
       <Route path="docs" element={<Docs />}>
         <Route path="algod" element={<Algod />} />
         <Route path="base64decode" element={<Base64Decode />} />
@@ -30,7 +32,7 @@ ReactDOM.render(
         <Route path="signandpost" element={<SignAndPost />} />
         <Route path="sign" element={<Sign />} />
         <Route path="txntutorial" element={<TxnTutorial />} />
-
+        
         <Route path="npmappoptin" element={<NpmAppOptIn />} />
         <Route path="npmassetoptin" element={<NpmAssetOptIn />} />
         <Route path="npmassetoptout" element={<NpmAssetOptOut />} />
@@ -64,6 +66,7 @@ ReactDOM.render(
       </Route>
     </Route>
     <Route path='receive' element={<Receive />} />
+    <Route path="swap" element={<SwapComponent/>}/>
     <Route path='importaccount' element={<Importaccount />} />
   </Routes>
   </BrowserRouter>,
