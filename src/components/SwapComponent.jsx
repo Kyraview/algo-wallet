@@ -175,14 +175,14 @@ export default function SwapComponent() {
     }
 
     return(
-        <div style={{"height":"100vh", "backgroundColor":"#333"}} >
-        <div align="center">
+        <div style={{"height":"100vh", "backgroundColor":"#222"}} >
+        <div align="center" style={{paddingTop:"15px"}}>
         <Button onClick={connect} id="connectButton" className="swapButton" style={{padding:'10px', marginTop:'80px', width:'200px'}}>Connect</Button>    
            
         <div id='swapScreen' style={{visibility:'hidden'}}>
         
         {connected? <></>:null}
-        {error? <Alert variant='danger' style={{width:'230px'}}>{error}</Alert>:<><br/><br/></>}
+        {error? <Alert variant='danger' style={{width:'230px'}}>{error}</Alert>:null}
         <div className='row' style={{maxWidth:'330px'}}>
             <div className='col' style={{margin:'auto'}}>
             <Select value={fromValue} onChange={handleFromChange} options={options}/>
@@ -200,7 +200,7 @@ export default function SwapComponent() {
         </div>
         <div className='row' style={{maxWidth:'330px'}}>
             <div className='col' style={{margin:'auto'}}>
-                <img src={ hoverSwap? swapSideIcon:downArrow} alt='' onClick={swapSide} style={{margin:'10px', cursor:'pointer', filter:"invert(100%)"}} onMouseEnter={()=>setHoverSwap(true)} onMouseLeave={()=>setHoverSwap(false)} />
+                <img src={ hoverSwap? swapSideIcon:downArrow} alt='' onClick={swapSide} style={{margin:'5px', cursor:'pointer', filter:"invert(100%)"}} onMouseEnter={()=>setHoverSwap(true)} onMouseLeave={()=>setHoverSwap(false)} />
             </div>
         </div>
         
@@ -212,8 +212,7 @@ export default function SwapComponent() {
             <>
             {warning?null:
             <>
-                <p style={{marginTop:'10px'}}>{outputAmount} {toValue.value}</p>
-                <p>estimated</p>
+                <p style={{marginTop:'5px'}}>estimated {outputAmount} {toValue.value}</p>
             </>
             }
             </>
@@ -235,7 +234,7 @@ export default function SwapComponent() {
         <div style={{"backgroundColor":"#ccc", "margin":'auto'}}>
             <p style={{"margin":"auto"}}>Inputed amount is less<br/>than the minium amount</p>
         </div>
-        :loading?null:<Button id="swapButton" className="swapButton" style={{margin:'auto', width:'220px', fontSize:'20px'}} onClick={swapToken}>Swap</Button>
+        :loading?null:<Button id="swapButton" className="swapButton" style={{width:'150px', fontSize:'15px'}} onClick={swapToken}>Swap</Button>
         }
         
         
