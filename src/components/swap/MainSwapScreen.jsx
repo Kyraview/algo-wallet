@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
 import Select from 'react-select';
-import swapSideIcon from '../imgs/swapSide.png';
-import downArrow from '../imgs/downArrow.png';
-import logo from '../imgs/swapAlgoLogo.png';
-import algoLogo from '../imgs/algoLogo.png';
-import ethLogo from '../imgs/ethLogo.png';
-import bnbLogo from '../imgs/bnbLogo.png';
-import '../bggradient.css';
+import swapSideIcon from './imgs/swapSide.png';
+import downArrow from './imgs/downArrow.png';
+import algoLogo from './imgs/algoLogo.png';
+import ethLogo from './imgs/ethLogo.png';
+import bnbLogo from './imgs/bnbLogo.png';
+import './bggradient.css';
 import { Vortex } from 'react-loader-spinner'
 import Utils  from './utils/Utils.js';
 
@@ -166,9 +165,9 @@ export default function MainSwapScreen(){
                 <div className="row" style={{marginTop:'10px'}}>
                     <div>
                         <p style={{margin:'0', textAlign:'right', display:'block'}}>
-                            <span style={{backgroundColor:'#830bba', padding:'5px', paddingLeft:"10px", borderRadius: '8px 8px 0% 0%'}}>Balance: {spendable} {fromValue.value}</span>
+                            <span style={{backgroundColor:'#963beb', padding:'5px', paddingLeft:"10px", borderRadius: '8px 8px 0% 0%'}}>Balance: {spendable} {fromValue.value}</span>
                         </p>
-                        <div style={{backgroundColor:'#830bba', borderRadius: '8px 0px 8px 8px'}}>
+                        <div style={{backgroundColor:'#963beb', borderRadius: '8px 0px 8px 8px'}}>
                             <div style={{display: "flex", padding:'8px', }}> 
                                 <input type="number" onChange={handleInputValueChange} value={inputAmount} style={{border:'#C6C6C6 1px solid', width:'100%', textAlign: 'center'}}/>
                                 <Button style={{maxHeight: '35px', fontSize:'10px'}} onClick={setMax}>max</Button>

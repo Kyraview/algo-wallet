@@ -10,7 +10,7 @@ import Docs from './docs';
 import Importaccount from './importaccount';
 import Receive from './receive';
 import reportWebVitals from './reportWebVitals';
-import SwapComponent from './components/SwapComponent';
+import SwapComponent from './components/swap/SwapComponent';
 
 ReactDOM.render(
   <BrowserRouter>
