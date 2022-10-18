@@ -32,7 +32,8 @@
     "react-select": "^5.5.0",
     "react-syntax-highlighter": "^15.5.0",
     "snapalgo-sdk": "^1.0.31",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "web3": "^1.8.0"
   },
   "scripts": {
     "start": "react-scripts start",
