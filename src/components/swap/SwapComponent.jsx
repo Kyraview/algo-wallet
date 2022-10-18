@@ -56,14 +56,13 @@ export default function SwapComponent() {
     return (
     <div style={{"height":"100vh", "backgroundColor":"#222"}} >  
     <div align="center" style={{paddingTop:"15px"}}>
-        {
-        !connected?
-            <Button onClick={connect} id="connectButton" className="swapButton" style={{padding:'10px', marginTop:'80px', width:'200px', display: connectDisplay}}>Connect</Button>    
-        :
-        <>
-            {screen==='swap'?
-                <MainSwapScreen/>
-            :
+        
+        
+            {screen==='swap'? (!connected?
+                    <Button onClick={connect} id="connectButton" className="swapButton" style={{padding:'10px', marginTop:'80px', width:'200px', display: connectDisplay}}>Connect</Button>    
+                    :<MainSwapScreen/>
+                )
+                :
                 null
             }
             {screen==='history'?
@@ -71,13 +70,13 @@ export default function SwapComponent() {
             :
                 null
             }
-        </>
-        }
+       
+        
         <span style={{
             position: 'absolute',
             left:'50%', 
             transform:'translateX(-50%)',
-            top:'95%', 
+            top:'85%', 
             textAlign:'center',
             width:"330px",
             backgroundColor: '#963beb',

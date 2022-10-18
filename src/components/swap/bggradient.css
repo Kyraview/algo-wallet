@@ -49,7 +49,7 @@ p{
 
 @keyframes slideUp {
     0%{
-        top: 95%;
+        top: 85%;
     }
     100%{
         top: 5%;
@@ -61,7 +61,7 @@ p{
         top: 5%;
     }
     100%{
-        top: 95%;
+        top: 85%;
     }
 }
 
