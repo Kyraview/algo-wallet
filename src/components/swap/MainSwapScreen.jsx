@@ -189,15 +189,19 @@ export default function MainSwapScreen(){
         </div>
         
         <div className='row' style={{maxWidth:'330px'}}>
-            <div className='col' style={{margin:'auto'}}>
-            <Select value={toValue} onChange={handleToChange} options={options}/>
+            <div className='col'>
+            <div style={{backgroundColor:'#963beb' , padding:'4px', borderRadius: '8px 8px 8px 0px'}}>
+                <div style={{marginRight: '8px', marginLeft: '8px', marginTop: '5px', marginBottom:'5px'}}>
+                    <Select value={toValue} onChange={handleToChange} options={options}/>
+                </div>
+            </div>
             {
             !loading?
             <>
             {warning?null:
-            <>
-                <p style={{marginTop:'5px'}}>estimated {outputAmount} {toValue.value}</p>
-            </>
+            <div>
+                <p style={{textAlign:'left', }}><span style={{backgroundColor:'#963beb', padding:'5px', paddingLeft:'14px', paddingRight:'10px', textAlign:'left', borderRadius: '0px 0px 8px 8px'}}>estimated {outputAmount} {toValue.value}</span></p>
+            </div>
             }
             </>
             :<Vortex
@@ -207,7 +211,7 @@ export default function MainSwapScreen(){
                 ariaLabel="vortex-loading"
                 wrapperStyle={{}}
                 wrapperClass="vortex-wrapper"
-                colors={['#963beb', '#830bba', '#c00fb4', '#e9d596']}
+                colors={['#963beb', '#830bba', '#c00fb4', '#e9d596','yellow', 'white']}
             />
             }
             </div>
@@ -215,10 +219,10 @@ export default function MainSwapScreen(){
         
         <br/>
         {warning?
-        <div style={{"backgroundColor":"#ccc", "margin":'auto'}}>
+        <div style={{"backgroundColor":"#ccc", "margin":'auto' }}>
             <p style={{"margin":"auto"}}>Inputed amount is less<br/>than the minium amount</p>
         </div>
-        :loading?null:<Button id="swapButton" className="swapButton" style={{width:'150px', fontSize:'14px'}} onClick={swapToken}>Swap</Button>
+        :loading?null:<Button className="snapAlgoDefaultButton-alt" onClick={swapToken}>Swap</Button>
         }
         
         

@@ -17,6 +17,75 @@
     border: #C6C6C6 1px solid!important;
     border-radius:10px;
 }
+
+.snapAlgoDefaultButton-alt{
+    
+    text-align: center;
+    width: 150px;
+    font-size: 12px;
+    font-family: 'Kantumruy Pro', sans-serif;
+    color: white;
+    cursor: pointer;
+    margin: 2px;
+    height: 45px;
+    text-align:center;
+    border: none;
+    font-size: 15px;
+    background-position: 0% 0%;
+    background-size: 300% 300%;
+    border-radius: 10px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-image: radial-gradient(circle at 110%,  #963beb 60%,  #0ba0e5 20% );
+    font-weight: 500;
+  }
+
+  .snapAlgoDefaultButton-alt:hover {
+    background-position: 70% -0%;
+    background-size: 500% 500%;
+    color: white;
+    transform: scale(1.05);
+    moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+
+  .snapAlgoDefaultButton{
+    
+    text-align: center;
+    font-size: 12px;
+    font-family: 'Kantumruy Pro', sans-serif;
+    color: white;
+    cursor: pointer;
+    margin: 2px;
+    text-align:center;
+    border: none;
+    font-size: 15px;
+    background-position: 0% 0%;
+    background-size: 300% 300%;
+    border-radius: 10px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-image: radial-gradient(circle at 110%,  #0ba0e5 60%,   #963beb 20% );
+    font-weight: 500;
+  }
+
+  .snapAlgoDefaultButton:hover {
+    background-position: 70% -0%;
+    background-size: 500% 500%;
+    color: white;
+    transform: scale(2);
+    moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+
 p{
     color:white;
 }

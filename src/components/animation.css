@@ -9,6 +9,39 @@
     animation: bggradient 20s ease-in-out infinite;
 }
 
+.snapAlgoDefaultButton-alt{
+    
+    text-align: center;
+    width: 100px;
+    font-size: 12px;
+    font-family: 'Kantumruy Pro', sans-serif;
+    color: white;
+    cursor: pointer;
+    margin: 2px;
+    height: 45px;
+    text-align:center;
+    border: none;
+    background-position: 0% 0%;
+    background-size: 300% 300%;
+    border-radius: 10px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-image: radial-gradient(circle at 110%,  #F00699 60%,  #0ba0e5 20% );
+  }
+
+  .snapAlgoDefaultButton-alt:hover {
+    background-position: 70% -0%;
+    background-size: 500% 500%;
+    color: white;
+    transform: scale(1.05);
+    moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+
 @keyframes bggradient { 
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
