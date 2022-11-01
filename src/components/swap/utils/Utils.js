@@ -36,8 +36,8 @@ export default class Utils{
             }
             ]
         });
-        const min = Number(result.minAmount);
-        return min;
+        console.log(result)
+        return result;
     }
     static async switchChain(ticker){
         try {

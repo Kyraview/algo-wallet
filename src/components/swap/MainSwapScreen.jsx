@@ -25,7 +25,7 @@ export default function MainSwapScreen(){
     const [hoverSwap, setHoverSwap] = useState(false);
     const [outputAmount, setOutputAmount] = useState(null);
     const [inputAmount, setInputAmount] = useState(null);
-    
+    const [warningText, setWarningText] = useState(<>Inputed amount is less<br/>than the minium amount</>)
     const [loading, setLoading] = useState(false);
     const [min, setMin] = useState(null);
     const [warning, setWarning] = useState(false);
@@ -35,7 +35,7 @@ export default function MainSwapScreen(){
 
     useEffect(()=> { updateInputs(inputAmount, fromValue.value, toValue.value) }, [toValue, fromValue, inputAmount])
     useEffect(async ()=> {
-        const min = await getMin(fromValue.value, toValue.value);
+        let min = await getMin(fromValue.value, toValue.value);
         console.log("min is ", min);
         console.log("input amount is ", inputAmount);
         if(min > inputAmount){
@@ -50,7 +50,16 @@ export default function MainSwapScreen(){
 
     useEffect(async () => {
         setLoading(true);
-        const min = await Utils.getMin(fromValue.value, toValue.value);
+        let min = await Utils.getMin(fromValue.value, toValue.value);
+        if(min.failure){
+            setWarningText(min.error);
+            setWarning(true);
+            setLoading(false);
+            return;
+        }
+        else{
+            min = min.minAmount
+        }
         console.log("min is");
         console.log(min);
         setInputAmount(min);
@@ -68,19 +77,30 @@ export default function MainSwapScreen(){
 
 
 
-    const handleFromChange = (selectedOption) => {
+    const handleFromChange = async (selectedOption) => {
         console.log(selectedOption);
+        const min = await getMin(selectedOption.value, toValue.value);
+        setInputAmount(min);
         setFrom(selectedOption);
         
     }
 
     const getMin = async (fromTicker, toTicker)=>{
         const min = await Utils.getMin(fromTicker, toTicker);
-        setMin(min);
+        if(min.failure){
+            setWarningText(min.error);
+            setWarning(true);
+            setMin(0);
+            return 0;
+        }
+        setMin(min.minAmount);
+        return min.minAmount;
     }
 
-    const handleToChange = (selectedOption) => {
-        console.log(selectedOption);
+    const handleToChange = async (selectedOption) => {
+        Utils.getMin(fromValue.value, selectedOption.value);
+        const min = await getMin(fromValue.value, selectedOption.value);
+        setInputAmount(min);
         setTo(selectedOption);
         
     }
@@ -140,14 +160,25 @@ export default function MainSwapScreen(){
             }
             ]
         });
-        if(Number(result.body.minAmount) > Number(result.body.amount)){
+        console.log("preswap result is");
+        console.log(result);
+        if(result.failure){
+            console.log("here")
+            setWarningText(<>{result.error}</>);
+            setWarning(true);
+            setLoading(false);
+            return;
+        }
+        if(Number(result.minAmount) > Number(result.amount)){
+            setMin(Number(result.minAmount));
             console.log("here");
+            setWarningText(<>Inputed amount is less<br/>than the minium amount</>)
             setWarning(true);
         }
         else{
             setWarning(false);
         }
-        setOutputAmount(result.body.estimatedAmount);
+        setOutputAmount(result.estimatedAmount);
         console.log(result);
         setLoading(false);
         
@@ -219,8 +250,8 @@ export default function MainSwapScreen(){
         
         <br/>
         {warning?
-        <div style={{"backgroundColor":"#ccc", "margin":'auto' }}>
-            <p style={{"margin":"auto"}}>Inputed amount is less<br/>than the minium amount</p>
+        <div style={{"backgroundColor":"#111", "margin":'auto' }}>
+            <p style={{"margin":"auto"}}>{warningText}</p>
         </div>
         :loading?null:<Button className="snapAlgoDefaultButton-alt" onClick={swapToken}>Swap</Button>
         }
