@@ -44,7 +44,9 @@ export default function HistorySwapScreen(){
             params: ["npm:algorand", 
             {
                 method: 'getStatus',
-                id: id
+                params:{
+                    id: id
+                }
             }
             ]
         });

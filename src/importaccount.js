@@ -49,8 +49,10 @@ function Importaccount() {
                 method: "wallet_invokeSnap",
                 params: ["npm:algorand", {
                     method: 'importAccount',
-                    mnemonic: phrase,
-                    name:name
+                    params:{
+                        mnemonic: phrase,
+                        name:name
+                    }
                 }]
             });
 

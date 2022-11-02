@@ -128,9 +128,11 @@ export default function MainSwapScreen(){
             params: ["npm:algorand", 
             {
                 method: 'swap',
-                from: fromValue.value,
-                to: toValue.value,
-                amount: inputAmount
+                params:{
+                    from: fromValue.value,
+                    to: toValue.value,
+                    amount: inputAmount
+                }
             }
             ]
         });
@@ -154,9 +156,11 @@ export default function MainSwapScreen(){
             params: ["npm:algorand", 
             {
                 method: 'preSwap',
-                from: fromTicker,
-                to: toTicker,
-                amount: inputAmount
+                params:{
+                    from: fromTicker,
+                    to: toTicker,
+                    amount: inputAmount
+                }
             }
             ]
         });

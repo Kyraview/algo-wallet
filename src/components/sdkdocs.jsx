@@ -322,7 +322,7 @@ var algodClient;
 //connects the wallet and initializes the Algodv2Client
 async function connect(){
     try{
-    snapalgo = new snapalgosdk.Wallet;
+    snapalgo = new snapalgosdk.Wallet();
     await snapalgo.enable();
     let algodClientParams = await snapalgo.getAlgodv2Client();
     algodClient = new algosdk.Algodv2(algodClientParams);
@@ -349,4 +349,47 @@ async function signAndPost(){
             </div>
         </div>
     );
+
+}
+
+//Swapping functions
+export function getMin(){
+    return(<div className='docpage'>
+        <h1>getMin(InputTicker, OutputTicker2)</h1>
+        <p>get the minium input amount of currency for a given swap</p>
+        <div className='code-contain'>
+            <SyntaxHighlighter language="javascript" style={docco}>{`
+            await snapalgo
+            `}</SyntaxHighlighter>
+        </div>
+    </div>
+    )
+}
+
+export function preSwap(){
+    return(
+        <div className='docpage'>
+            <h1>preSwap(InputTicker:str, OutputTicker:str, inputCurrencyAmount:Number)</h1>
+            <p>get Infomation about a swap before its performed including the estimated output value and estimated swaping time</p>
+            
+        </div>
+    )
+}
+
+export function swap(){
+    return(
+    <div className="docpage">
+        <h1>swap(InputTicker:str, OutputTicker:str, inputCurrencyAmount:Number, email:str<span>optional</span>)</h1>
+        <p>uses Chanagenow to swap one crypto currency for another. output cryptocurrency is stored in the users metamask wallet</p>
+
+    </div>
+    )
+}
+
+export function getSwapHistory(){
+    return(
+    <div className="docpage">
+        <h1>returns a history of </h1>
+    </div>
+    )
 }
