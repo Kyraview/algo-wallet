@@ -31,8 +31,10 @@ export default class Utils{
             params: ["npm:algorand", 
             {
                 method: 'getMin',
-                from: fromTicker,
-                to: toTicker,
+                params:{
+                  from: fromTicker,
+                  to: toTicker
+                }
             }
             ]
         });
