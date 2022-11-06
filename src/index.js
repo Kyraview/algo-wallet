@@ -4,6 +4,7 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import {Algod,Base64Decode,Base64Encode,Enable,EncodeTxn,EZsign,EZsignAndPost,EZsignSmartSig,Indexer,Post,SignAndPost,Sign,TxnTutorial} from './components/sdkdocs';
 import {NpmAppOptIn,NpmAssetOptIn,NpmAssetOptOut,NpmclearAccounts,NpmcreateAcct,NpmdisplayBalance,NpmdisplayMnemonic,NpmEnable,NpmencodeTransaction,NpmencodeTransactions,NpmgetAccount,NpmgetAccounts,NpmgetAddress,NpmgetAssetById,NpmgetAssets,NpmgetBalance,NpmgetCurrentAccount,NpmgetTxns,NpmimportAcct,NpmisValidAddress,NpmpostTxns,NpmsecureReceive,NpmsetAcct,NpmsignAndPostTxns,NpmsignData,NpmsignLogicSig,NpmsignTxns,Npmtransfer,NpmtransferAsset,Npmuint8ArraytoBase64} from './components/npmdocs';
 import './index.css';
+import { Warning } from './components/Warning';
 import App from './App';
 import Home from './home';
 import Docs from './docs';
@@ -67,6 +68,7 @@ ReactDOM.render(
     </Route>
     <Route path='receive' element={<Receive />} />
     <Route path="swap" element={<SwapComponent/>}/>
+    <Route path="warning" element={<Warning/>} />
     <Route path='importaccount' element={<Importaccount />} />
   </Routes>
   </BrowserRouter>,

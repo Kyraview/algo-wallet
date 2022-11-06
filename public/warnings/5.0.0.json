@@ -1,0 +1,6 @@
+{
+    "action":false,
+    "useable":true,
+    "getMnemonics": false,
+    "warnings":[["Test","this is a test", "have a nice day ;)"], ["Test 2", "this is also a test", "have a nice day ;)"]]
+}
