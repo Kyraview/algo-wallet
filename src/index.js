@@ -68,7 +68,6 @@ ReactDOM.render(
     </Route>
     <Route path='receive' element={<Receive />} />
     <Route path="swap" element={<SwapComponent/>}/>
-    <Route path="warning" element={<Warning/>} />
     <Route path='importaccount' element={<Importaccount />} />
   </Routes>
   </BrowserRouter>,
