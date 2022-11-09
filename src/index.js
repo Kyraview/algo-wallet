@@ -4,7 +4,6 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import {Algod,Base64Decode,Base64Encode,Enable,EncodeTxn,EZsign,EZsignAndPost,EZsignSmartSig,Indexer,Post,SignAndPost,Sign,TxnTutorial} from './components/sdkdocs';
 import {NpmAppOptIn,NpmAssetOptIn,NpmAssetOptOut,NpmclearAccounts,NpmcreateAcct,NpmdisplayBalance,NpmdisplayMnemonic,NpmEnable,NpmencodeTransaction,NpmencodeTransactions,NpmgetAccount,NpmgetAccounts,NpmgetAddress,NpmgetAssetById,NpmgetAssets,NpmgetBalance,NpmgetCurrentAccount,NpmgetTxns,NpmimportAcct,NpmisValidAddress,NpmpostTxns,NpmsecureReceive,NpmsetAcct,NpmsignAndPostTxns,NpmsignData,NpmsignLogicSig,NpmsignTxns,Npmtransfer,NpmtransferAsset,Npmuint8ArraytoBase64} from './components/npmdocs';
 import './index.css';
-import { Warning } from './components/Warning';
 import App from './App';
 import Home from './home';
 import Docs from './docs';
@@ -12,6 +11,7 @@ import Importaccount from './importaccount';
 import Receive from './receive';
 import reportWebVitals from './reportWebVitals';
 import SwapComponent from './components/swap/SwapComponent';
+import {AccountObj, SwapHistory, AlgoAddress, EthAddress, SwapStatus, Ticker, AlgosdkTransaction, WalletTransaction, SignedTxn, EnabledWalletObject} from './components/docs/npm/Types';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -33,7 +33,20 @@ ReactDOM.render(
         <Route path="signandpost" element={<SignAndPost />} />
         <Route path="sign" element={<Sign />} />
         <Route path="txntutorial" element={<TxnTutorial />} />
-        
+        {/*Types */}
+        <Route path="AccountObj" element={<AccountObj/>} />
+        <Route path="AlgoAddress" element={<AlgoAddress/>} />
+        <Route path="SwapHistory" element={<SwapHistory/>} />
+        <Route path="EthAddress" element={<EthAddress/>} />
+        <Route path="SwapStatus" element={<SwapStatus/>} />
+        <Route path="Ticker" element={<Ticker/>} />
+        <Route path="algosdkTransaction" element={<AlgosdkTransaction/>} />
+        <Route path="EncodedTxn" element={<EncodeTxn/>}/>
+        <Route path="WalletTransaction" element={<WalletTransaction/>} />
+        <Route path="SignedTxn" element={<SignedTxn/>} />
+        <Route path="EnabledWalletObject" element={<EnabledWalletObject/>}/>
+
+
         <Route path="npmappoptin" element={<NpmAppOptIn />} />
         <Route path="npmassetoptin" element={<NpmAssetOptIn />} />
         <Route path="npmassetoptout" element={<NpmAssetOptOut />} />

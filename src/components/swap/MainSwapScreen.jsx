@@ -19,7 +19,10 @@ const options = [
 ];
 
 export default function MainSwapScreen(){
-    const [error, setError] = useState('');
+    const [error, setError] = useState(false);
+    const [errorMsg, setErrorMsg] = useState("Swap failed");
+    const [swapSuccess, setSwapSuccess] = useState(false)
+    const [successMsg, setSuccessMsg] = useState("Swap Successful");
     const [fromValue, setFrom] = useState(options[0]);
     const [toValue, setTo] = useState(options[1]);
     const [hoverSwap, setHoverSwap] = useState(false);
@@ -123,7 +126,8 @@ export default function MainSwapScreen(){
     }
 
     const swapToken = async () => {
-        await window.ethereum.request({
+        try{
+        const output = await window.ethereum.request({
             method: 'wallet_invokeSnap',
             params: ["npm:algorand", 
             {
@@ -136,6 +140,14 @@ export default function MainSwapScreen(){
             }
             ]
         });
+        console.log(output);
+        setSwapSuccess(true);
+        }
+        catch(e){
+        console.log(e);
+        setSwapSuccess(false);
+        setError(true);
+        }
 
     }
 
@@ -192,7 +204,8 @@ export default function MainSwapScreen(){
         
 
         <div id='swapScreen'>
-        {error? <Alert variant='danger' style={{width:'230px'}}>{error}</Alert>:null}
+        {error? <Alert variant='danger' style={{width:'230px'}} onClose={()=>setError(false)} dismissible>{errorMsg}</Alert>:null}
+        {swapSuccess? <Alert variant='success' style={{width:'230px'}} onClose={()=>setSwapSuccess(false)} dismissible>{successMsg}</Alert>:null}
         <div className='row' style={{maxWidth:'330px'}}>
             <div className='col' style={{margin:'auto'}}>
             

@@ -62,7 +62,22 @@ export function NpmAssetOptIn() {
         </div>
     );
 }
-
+export function AccountObj(){
+    return(
+    <div className="docPage">
+    <h1>here</h1>
+    <SyntaxHighlighter language="typescript" style={docco}>{`
+    interface AccountObj{
+        name: string,
+        address: Address, 
+        type: 'imported' | 'generated',
+        swaps: Array<${<a>SwapHistory</a>}>,
+        path?: number //int (only exist on generated accounts)
+    }
+    `}</SyntaxHighlighter>
+    </div>
+    )
+}
 export function NpmAssetOptOut() {
     return(
         <div className='docpage'>

@@ -8,10 +8,16 @@ function DocSidebar() {
     <div className='sidebar'>
     <ProSidebar>
     <Menu iconShape="square">
-        <MenuItem><Link to="/">Homepage</Link></MenuItem>
-        <MenuItem><Link to="/docs">Quickstart</Link></MenuItem>
-        <MenuItem><Link to="txntutorial">Signing a Transaction</Link></MenuItem>
+        <MenuItem><Link to="/docs">Homepage</Link></MenuItem>
+        <SubMenu title="QuickStart">
+          <MenuItem><Link to="/docs">Quickstart</Link></MenuItem>
+          <MenuItem>Install</MenuItem>
+          <MenuItem>Overview</MenuItem>
+          <MenuItem><Link to="txntutorial">Signing a Transaction (sdk)</Link></MenuItem>
+          <MenuItem><Link to="txntutorial">Signing a Transaction (snapalgo)</Link></MenuItem>
+        </SubMenu>
         <SubMenu title="SnapAlgoSDK">
+          <MenuItem>SDK overview</MenuItem>
           <MenuItem><Link to="base64decode">base64Decode</Link></MenuItem>
           <MenuItem><Link to="base64encode">base64Encode</Link></MenuItem>
           <MenuItem><Link to="enable">enable</Link></MenuItem>
@@ -26,6 +32,7 @@ function DocSidebar() {
           <MenuItem><Link to="sign">signTxns</Link></MenuItem>
         </SubMenu>
         <SubMenu title="npm:algorand">
+          <MenuItem>Snap Overview</MenuItem>
           <MenuItem><Link to="npmappoptin">AppOptIn</Link></MenuItem>
           <MenuItem><Link to="npmassetoptin">AssetOptIn</Link></MenuItem>
           <MenuItem><Link to="npmassetoptout">AssetOptOut</Link></MenuItem>
@@ -56,6 +63,19 @@ function DocSidebar() {
           <MenuItem><Link to="npmtransfer">transfer</Link></MenuItem>
           <MenuItem><Link to="npmtransferasset">transferAsset</Link></MenuItem>
           <MenuItem><Link to="npmuint8arraytobase64">Uint8ArrayToBase64</Link></MenuItem>
+        </SubMenu>
+        <SubMenu title="Types">
+          <MenuItem><Link to="AccountObj">AccountObj</Link></MenuItem>
+          <MenuItem><Link to="EnabledWalletObject">EnabledWalletObject</Link></MenuItem>
+          <MenuItem><Link to="AlgoAddress">AlgoAddress</Link></MenuItem>
+          <MenuItem><Link to="WalletTransaction">WalletTransaction</Link></MenuItem>
+          <MenuItem><Link to="SignedTxn">SignedTxn</Link></MenuItem>
+          <MenuItem><Link to="EncodedTxn">EncodedTxn</Link></MenuItem>
+          <MenuItem><Link to="algosdkTransaction">algosdk.Transaction</Link></MenuItem>
+          <MenuItem><Link to="EthAddress">EthAddress</Link></MenuItem>
+          <MenuItem><Link to="SwapHistory">SwapHistory</Link></MenuItem>
+          <MenuItem><Link to="SwapStatus">SwapStatus</Link></MenuItem>
+          <MenuItem><Link to="Ticker">Ticker</Link></MenuItem>
         </SubMenu>
     </Menu>
     </ProSidebar>

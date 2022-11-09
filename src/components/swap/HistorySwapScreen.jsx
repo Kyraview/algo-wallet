@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import downArrow from './imgs/downArrow.png';
-import { ProgressBar } from 'react-loader-spinner'
+import { ProgressBar } from 'react-loader-spinner';
+import moment from 'moment';
+import {Status} from './Status'
 export default function HistorySwapScreen(){
     useEffect( ()=>{
         console.log("useEffect called")
@@ -43,7 +45,7 @@ export default function HistorySwapScreen(){
             method: 'wallet_invokeSnap',
             params: ["npm:algorand", 
             {
-                method: 'getStatus',
+                method: 'getSwapStatus',
                 params:{
                     id: id
                 }
@@ -111,24 +113,17 @@ export default function HistorySwapScreen(){
                                     <>
                                     <br/>
                                 <div style={{display:'flex', justifyContent:'end'}}>
-                                    <div style={{
-                                    height:'10px', 
-                                    width:'10px', 
-                                    borderRadius:'100%',
-                                    transform:'translateY(75%)',
-                                    marginRight:'5px',
-                                    backgroundColor: ({
-                                        'new':'orange',
-                                        'waiting':'#FF6700',
-                                        'confirming':'FEC601',
-                                        'exchanging':'#FEC601',
-                                        'sending': '#F0F757',
-                                        'finished':"#64F58D",
-                                        'failed':'red',
-                                        'refunded':'#4D9DE0',
-                                        'verifying':'purple'})[tileProperties[item.id].statis.status]
-                                    }}></div>
-                                    <p>{tileProperties[item.id].statis.status}</p>
+                                <p style={{marginRight:'5px', fontSize:'12px'}}>{tileProperties[item.id].statis.amountSend}</p>
+                                <p style={{marginRight:"10px", fontSize:'12px'}}>{tileProperties[item.id].statis.fromCurrency}</p>
+                                <img height="15" width="15" style={{filter:'invert(1)', transform:'rotate(-90deg)', marginRight:'10px'}} src={downArrow}/>
+                                <p style={{marginRight:'10px', fontSize:'12px'}}>{tileProperties[item.id].statis.expectedReceiveAmount}</p>
+                                <p style={{fontSize: '12px'}}>{tileProperties[item.id].statis.toCurrency}</p>
+                                
+                                </div>
+                                <div style={{display:'flex', justifyContent:'space-between'}}>
+                                    <Status tileProperties={tileProperties} item={item}/>
+                                    <p>{moment(new Date(tileProperties[item.id].statis.createdAt)).fromNow()}</p>
+                                    
                                  </div>
                                 
                                     

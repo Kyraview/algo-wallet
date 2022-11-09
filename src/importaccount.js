@@ -33,7 +33,7 @@ function Importaccount() {
         }
         phrase = phrase.join(' ');
         const name = document.getElementById("accountName").value;
-
+        console.log(name);
         try{
             await window.ethereum.request({
                 method: 'wallet_enable',

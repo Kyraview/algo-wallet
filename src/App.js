@@ -13,7 +13,7 @@ export default function App() {
 
   const enable = async () => {
     try {
-      snapalgo = new snapalgosdk.Wallet;
+      snapalgo = new snapalgosdk.Wallet();
     } catch (err) {
       console.error(err)
       alert('Problem happened: ' + err.message || err)

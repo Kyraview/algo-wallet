@@ -1,19 +1,20 @@
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-
+import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 export function Quickstart() {
     return (
     <div className='docpage'>
-        <h1>Quickstart</h1>
-
+        <h1>Quickstart Snapalgo-SDK</h1>
+        the snapalgo sdk provides a simple way to develop in the algorand ecosystem with the ability to reach all metamask users a feature that
+        is new to algorand. The SDK also provides users with a wallet interface directly on your DAPP.
+        <h3>Install</h3>
         <p>SnapAlgo currently requires an install of <a href='https://metamask.io/flask/'>MetaMask Flask</a>. You must uninstall MetaMask first but that will require you to make sure you have your current wallet secret keys to reimport the desired wallets onto MetaMask Flask if needed.</p>
-        <p>Importing the algosdk library is only required for transaction integration into your webapp.</p>
+        <h3>SnapAlgoSDK - Node</h3>
         <div className='code-contain'>
             <SyntaxHighlighter language="javascript" style={docco}>{
-`<script src="https://cdn.jsdelivr.net/npm/algosdk@1.16.0/dist/browser/algosdk.min.js">`}</SyntaxHighlighter>
+`yarn add snapalgo-sdk`}</SyntaxHighlighter>
         </div>
-
-        <p>A simple way to start using the wallet is by enabling it. This can be done three different ways:</p>
 
         <h3>SnapAlgoSDK - HTML</h3>
         <p>This is the way to access the floating wallet web application using HTML and raw Javascript. You have to import the SDK with CDN before using.</p>
@@ -21,20 +22,40 @@ export function Quickstart() {
         <SyntaxHighlighter language="javascript" style={docco}>{
 `<script src="https://cdn.jsdelivr.net/npm/snapalgo-sdk@1.0.19"></script>`}</SyntaxHighlighter>
         </div>
-        <p>The wallet can now be enabled for usage.</p>
-        <div className='code-contain'>
+        <h3>The enable function</h3>
+        before you can use the sdk you must enable the sdk to do this you must first initialize the sdk
+        <SyntaxHighlighter language="javascript" style={docco}>{`
+        const snapalgo = new SnapAlgo.Wallet();
+        `}</SyntaxHighlighter>
+        after the snapalgo class is initalized you can simply call <Link to="../enable">window.algorand.enable() </Link>
+        this creates a popup window and allows the user to select an account or network
+        <SyntaxHighlighter language="javascript" style={docco}>{`
+        window.algorand.enable()
+        // or
+        snapalgo.enable()
+        `}</SyntaxHighlighter>
+
+        or you could copy this enable function into your code
         <SyntaxHighlighter language="javascript" style={docco}>{
 `async function enable(){
     try {
-        window.snapalgo = new SnapAlgo.Wallet();
-        await window.algorand.enable();
+        const snapalgo = new SnapAlgo.Wallet();
+        return await window.algorand.enable();
     } catch (err) {
       console.error(err);
     }
 }`}</SyntaxHighlighter>
-        </div>
-        <h3>SnapAlgoSDK - ReactJS</h3>
-        <p>This is the way to access the floating wallet web application using React. You have to import the SDK from the npm registry.</p>
+    <div className='code-contain'>
+        <Button onClick={async ()=>console.log(await window.algorand.enable())}>call enable</Button>
+    </div>
+        <br/>
+        after enable is called all sdk functions can be accessesed from the gloabal window.algorand object.
+        or directly off the snapalgo object.
+        The enable function returns a promise that resolves to an <Link to="../EnableWalletObject">EnabledWalletObject</Link> containing 
+        the selected address, genisisId, and genisisHash.
+        <br/>
+        <h3>SnapAlgoSDK - React</h3>
+        <p>The snap algosdk can also be set up for react though it requires a few more steps</p>
         <div className='code-contain'>
         <SyntaxHighlighter language="javascript" style={docco}>{
 `npm install snapalgo-sdk
@@ -46,7 +67,7 @@ yarn add snapalgo-sdk`}</SyntaxHighlighter>
         <SyntaxHighlighter language="javascript" style={docco}>{
 `import { useEffect } from 'react';
 const snapalgosdk = require('snapalgo-sdk');
-var snapalgo;
+let snapalgo;
 
 export default function App() {
     useEffect(() => {
@@ -55,7 +76,7 @@ export default function App() {
 
     const enable = async () => {
         try {
-            snapalgo = new snapalgosdk.Wallet;
+            snapalgo = new snapalgosdk.Wallet();
             snapalgo.enable();
         } catch (err) {
             console.error(err)
@@ -65,7 +86,7 @@ export default function App() {
 }`}</SyntaxHighlighter>
         </div>
         <h3>npm:algorand</h3>
-        <p>This is the way to access wallet functions without the floating wallet. The accounts will be logged to the console to show how to call SnapAlgo methods. All methods can accept the property, testnet, which will take a boolean and determine if the testnet is to be used.</p>
+        snapalgo can also be used without the SDK. This allows SNAPALGO to be used with no dependencys other than the end user having metamask.
         <div className='code-contain'>
         <SyntaxHighlighter language="javascript" style={docco}>{
 `async function enable(){
@@ -97,15 +118,20 @@ export function Algod() {
         <div className='docpage'>
             <h1>getAlgodv2Client()</h1>
 
-            <p>accesses the Algod client through the users preferred connection. returns a promised BaseHTTPClient that is used to build an Algodv2Client</p>
+            accesses the Algod client through the users preferred connection. returns a promised BaseHTTPClient that is used to build an Algodv2Client
+            this function behaves in accordance with arc 9
+            <Link to="https://arc.algorand.foundation/ARCs/arc-0009#specification">Arc-9</Link>
             <div className='code-contain'>
                 <SyntaxHighlighter language="javascript" style={docco}>{
 `try{
     await snapalgo.enable();
-    let algodClientParams = await snapalgo.getAlgodv2Client();
+    const algodClientParams = await window.algorand.getAlgodv2Client();
     const algodClient = new algosdk.Algodv2(algodClientParams);
 } catch (err) {console.log(err)}`}</SyntaxHighlighter>
             </div>
+            <h6>returns</h6>
+            <Link to="https://algorand.github.io/js-algorand-sdk/interfaces/BaseHTTPClient.html">BaseHTTPClient</Link>
+            
         </div>
     );
 }
@@ -113,14 +139,14 @@ export function Algod() {
 export function Base64Decode() {
     return(
         <div className='docpage'>
-            <h1>base64Decode(arraybuffer)</h1>
+            <h1>base64Decode(data: string)</h1>
 
             <h5>arraybuffer: the target base64 encoded Buffer array to decode</h5>
             <p>returns a decoded Buffer array</p>
             <div className='code-contain'>
                 <SyntaxHighlighter language="javascript" style={docco}>{
 `try{
-    let encodedArray = await snapalgo.base64Decode(arraybuffer);
+    let encodedArray = await snapalgo.base64Decode(base64dataObj: string);
 } catch (err) {console.log(err)}`}</SyntaxHighlighter>
             </div>
         </div>
@@ -157,6 +183,8 @@ export function Enable() {
     await snapalgo.enable();
 } catch (err) {console.log(err)}`}</SyntaxHighlighter>
             </div>
+            returns
+            <Link to="EnabledWalletObject">EnabledWalletObject</Link>
         </div>
     );
 }
@@ -166,14 +194,25 @@ export function EncodeTxn() {
         <div className='docpage'>
             <h1>encodeTxn(txn)</h1>
 
-            <h5>txn: the target transaction object to encoded into  base64</h5>
-            <p>returns the base64 encoding of the canonical msgpack encoding of the target transaction object</p>
-            <div className='code-contain'>
-                <SyntaxHighlighter language="javascript" style={docco}>{
-`try{
-    let encodedTxn = await snapalgo.encodeTxn(txn);
-} catch (err) {console.log(err)}`}</SyntaxHighlighter>
-            </div>
+            takes in a <Link to="../AlgosdkTransaction">algosdk transaction</Link> object and returns an <Link to="../EncodedTxn">encoded Transaction</Link> that 
+            can be used in a <Link to="../WalletTransaction">WalletTransaction</Link>
+            <br/>
+            <br/>
+            <h5>Useage</h5>
+            <SyntaxHighlighter language="typescript" style={docco}>{`
+            let encodedTxn = await snapalgo.encodeTxn(txn);
+            `}</SyntaxHighlighter>
+            <h5>Signature</h5>
+            <SyntaxHighlighter language="typescript" style={docco}>{`
+            encodeTxn(txn: algosdk.Transaction) : EncodedTxn
+            `}</SyntaxHighlighter>
+
+            <h6>Params</h6>
+            <Link to="../AlgosdkTransaction">algosdk.Transaction</Link>
+            <br/>
+            <br/>
+            <h6>returns</h6>
+            <Link to="../EncodedTxn">EncodedTxn</Link>
         </div>
     );
 }
@@ -183,15 +222,19 @@ export function EZsign() {
         <div className='docpage'>
             <h1>EZsign(txn)</h1>
 
-            <h5>txn: the target transaction object to encoded into  base64 and signed</h5>
-            <p>returns the signed base64 encoding of the canonical msgpack encoding of the target transaction object to allow for signing ease</p>
-            <div className='code-contain'>
-                <SyntaxHighlighter language="javascript" style={docco}>{
-`try{
-    await snapalgo.enable();
-    let signedTxn = await snapalgo.EZsign(txn);
-} catch (err) {console.log(err)}`}</SyntaxHighlighter>
-            </div>
+            <h5>accepts an algosdk transaction and returns a signed transaction</h5>
+            <SyntaxHighlighter language="javascript" style={docco}>{
+            `
+                await snapalgo.enable();
+                let signedTxn = await snapalgo.EZsign(txn);
+                let signedTxn = await algorand.EZsign(txn);
+            `}</SyntaxHighlighter>
+            <h6>params</h6>
+            <Link to="../AlgosdkTransaction">algosdk.Transaction</Link>
+            <br/>
+            <h6>returns</h6>
+            <Link to="../SignedTxn">SignedTxn</Link>
+            
         </div>
     );
 }
@@ -201,15 +244,20 @@ export function EZsignAndPost() {
         <div className='docpage'>
             <h1>EZsignAndPost(txn)</h1>
 
-            <h5>txn: the target transaction object to encoded into  base64 to be signed and posted</h5>
-            <p>returns either an error or the txnId of the posted txn</p>
-            <div className='code-contain'>
+            takes in a standard transaction, then signs the transaction and submits it to the blockchain
+            returns the transaction hash or an error.
+            
                 <SyntaxHighlighter language="javascript" style={docco}>{
-`try{
-    await snapalgo.enable();
-    let signedTxn = await snapalgo.EZsignAndPost(txn);
-} catch (err) {console.log(err)}`}</SyntaxHighlighter>
-            </div>
+    `
+        await snapalgo.enable();
+        let signedTxn = await snapalgo.EZsignAndPost(txn);
+    `}
+                </SyntaxHighlighter>
+            <h6>params</h6>
+            <br/>
+            <Link to="../AlgosdkTransaction">algosdk.Transaction</Link>
+            <h6>returns</h6>
+            txnHash: string
         </div>
     );
 }
@@ -238,14 +286,15 @@ export function Indexer() {
             <h1>getIndexerClient()</h1>
 
             <p>accesses the Indexer client through the users preferred connection. returns a promised BaseHTTPClient that is used to build an Indexer</p>
-            <div className='code-contain'>
-                <SyntaxHighlighter language="javascript" style={docco}>{
-`try{
+            
+            <SyntaxHighlighter language="javascript" style={docco}>{
+`
     await snapalgo.enable();
     let indexerClientParams = await snapalgo.getIndexerClient();
     const indexerClient = new algosdk.Indexer(indexerClientParams);
-} catch (err) {console.log(err)}`}</SyntaxHighlighter>
-            </div>
+`}
+            </SyntaxHighlighter>
+            
         </div>
     );
 }
@@ -273,16 +322,22 @@ export function SignAndPost() {
     return(
         <div className='docpage'>
             <h1>signAndPostTxns(txns)</h1>
-
-            <h5>txns: an array of the WalletTransaction objects to sign and post. the required element of the object is txn, a string that is a base64 encoding of the canonical msgpack encoding of a transaction</h5>
-            <p>used to sign encoded transaction(s) and then post them to an Algorand network. will take the inputs of the signTxns() function and return the outputs of the postTxns() function</p>
-            <div className='code-contain'>
-                <SyntaxHighlighter language="javascript" style={docco}>{
-`try{
-    await snapalgo.enable();
-    let response = await snapalgo.signAndPostTxn([txns]);
-} catch (err) {console.log(err)}`}</SyntaxHighlighter>
-            </div>
+            this function takes in a <Link to="../WalletTransaction">WalletTransaction</Link> then signs the transaction and posts it to the blockchain
+            it then returns a transaction hash as a string.
+            this function is part of algorand ARCs and its documentation can be found at
+            <Link to="https://arc.algorand.foundation/ARCs/arc-0008">arc-0008</Link>
+            
+            <SyntaxHighlighter language="javascript" style={docco}>{
+            `
+                const txHash = await snapalgo.signAndPostTxn(WalletTransaction);
+            `}
+            </SyntaxHighlighter>
+            
+        <h6>params</h6>
+        <Link to="../WalletTransaction">Wallet Transaction</Link>
+        <br/>
+        <h6>returns</h6>
+        Transaction hash : string
         </div>
     );
 }
