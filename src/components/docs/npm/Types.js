@@ -283,9 +283,11 @@ export function TransactionHistoryObj(){
 
 
 export function PreSwapData(){
+    return(
     <div className='docPage'>
-
+        <h1>PreSwapData</h1>
     </div>  
+    )
 }
 
 export function AssetObj(){

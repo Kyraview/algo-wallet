@@ -11,8 +11,8 @@ import Importaccount from './importaccount';
 import Receive from './receive';
 import reportWebVitals from './reportWebVitals';
 import SwapComponent from './components/swap/SwapComponent';
-import {AccountObj, SwapHistory, AlgoAddress, EthAddress, SwapStatus, Ticker, AlgosdkTransaction, WalletTransaction, SignedTxn, EnabledWalletObject} from './components/docs/npm/Types';
-
+import {AccountObj, SwapHistory, AlgoAddress, EthAddress, SwapStatus, Ticker, AlgosdkTransaction, WalletTransaction, SignedTxn, EnabledWalletObject, PreSwapData} from './components/docs/npm/Types';
+import Demo from './demo';
 ReactDOM.render(
   <BrowserRouter>
   <Routes>
@@ -45,6 +45,7 @@ ReactDOM.render(
         <Route path="WalletTransaction" element={<WalletTransaction/>} />
         <Route path="SignedTxn" element={<SignedTxn/>} />
         <Route path="EnabledWalletObject" element={<EnabledWalletObject/>}/>
+        <Route path="PreswapData" element={<PreSwapData/>}/>
 
 
         <Route path="npmappoptin" element={<NpmAppOptIn />} />
@@ -82,6 +83,7 @@ ReactDOM.render(
     <Route path='receive' element={<Receive />} />
     <Route path="swap" element={<SwapComponent/>}/>
     <Route path='importaccount' element={<Importaccount />} />
+    <Route path='demo' element={<Demo/>} />
   </Routes>
   </BrowserRouter>,
   document.getElementById('root')

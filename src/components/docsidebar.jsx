@@ -76,6 +76,7 @@ function DocSidebar() {
           <MenuItem><Link to="SwapHistory">SwapHistory</Link></MenuItem>
           <MenuItem><Link to="SwapStatus">SwapStatus</Link></MenuItem>
           <MenuItem><Link to="Ticker">Ticker</Link></MenuItem>
+          <MenuItem><Link to="PreSwapData">PreSwapData</Link></MenuItem>
         </SubMenu>
     </Menu>
     </ProSidebar>

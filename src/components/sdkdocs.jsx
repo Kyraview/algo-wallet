@@ -347,15 +347,29 @@ export function Sign() {
         <div className='docpage'>
             <h1>signTxns(txns)</h1>
 
-            <h5>txns: an array of the WalletTransaction objects to sign. the required element of the object is txn, a string that is a base64 encoding of the canonical msgpack encoding of a transaction</h5>
-            <p>signs a list of encoded transactions on the Algorand blockchain. will return either an error or an array 'ret' that is the same length as the txns parameter array, containing the signed transaction(s)</p>
-            <div className='code-contain'>
+            Takes an array of <Link to="../WalletTransaction">WalletTransaction</Link> objects to sign. 
+            SnapAlgo then signs these transactions and returns an array of <Link to="SignedTxns">SignedTxns</Link>
+            
                 <SyntaxHighlighter language="javascript" style={docco}>{
-`try{
-    await snapalgo.enable();
-    let signedTxn = await snapalgo.signTxn([txns]);
-} catch (err) {console.log(err)}`}</SyntaxHighlighter>
-            </div>
+                `
+                await algorand.enable();
+                let signedTxn = await snapalgo.signTxns([WalletTransaction]);
+                `}
+                </SyntaxHighlighter>
+                params
+                <SyntaxHighlighter language="typescript" style={docco}>{
+                    `
+                   algorand.signTxns(txns:Array<WalletTransactions>) : Array<SignedTxn>
+                    `
+                }
+                </SyntaxHighlighter>
+                <Link to="../WalletTransaction">WalletTransaction</Link>
+                returns
+                <SyntaxHighlighter language='typescript' style={docco}>{`
+                Array<SignedTxn>
+                `}</SyntaxHighlighter>
+                <Link to="../SignedTxn">SignedTxn</Link>
+                
         </div>
     );
 }
@@ -411,13 +425,17 @@ async function signAndPost(){
 export function getMin(){
     return(<div className='docpage'>
         <h1>getMin(InputTicker, OutputTicker2)</h1>
-        <p>get the minium input amount of currency for a given swap</p>
-        <div className='code-contain'>
-            <SyntaxHighlighter language="javascript" style={docco}>{`
-            await snapalgo
+        <hr/>
+        get the minium input amount of currency for a given swap
+        
+            <SyntaxHighlighter language="typescript" style={docco}>{`
+            algorand.getMin(from:Ticker, to:Ticker): MinData
             `}</SyntaxHighlighter>
+        params
+        <Link to="../Ticker">Ticker</Link>
+        returns
+        <Link to="../MinData">MinData</Link>
         </div>
-    </div>
     )
 }
 
@@ -425,8 +443,14 @@ export function preSwap(){
     return(
         <div className='docpage'>
             <h1>preSwap(InputTicker:str, OutputTicker:str, inputCurrencyAmount:Number)</h1>
-            <p>get Infomation about a swap before its performed including the estimated output value and estimated swaping time</p>
-            
+            get Infomation about a swap before its performed including the estimated output value and estimated swaping time
+            <SyntaxHighlighter language="typescript" style={docco}>{`
+            algorand.preSwap(from:Ticker, to:Ticker, amount: Number) : PreswapData
+            `}</SyntaxHighlighter>
+            params
+            <Link to="../Ticker">Ticker</Link>
+            returns
+            <Link to="../PreSwapData">PreSwap Data</Link>
         </div>
     )
 }
