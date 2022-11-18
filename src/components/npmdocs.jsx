@@ -1,6 +1,31 @@
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
+
+export function NpmQuickStart() {
+    return(
+        <div className='docpage'>
+            <h1>rpc QuickStart</h1>
+            RPC methods can be called with no package install and will automatically work with any user who has metamask flask installed.
+            These will eventually work on the standard metamask.
+            before these methods can be called metamask must first be connected to the DAPP
+            <SyntaxHighlighter language="javascript" style={docco}>{
+            `
+            async  function  connect () {
+                await window.ethereum.request({
+                    method:  'wallet_enable',
+                    params: [{
+                        wallet_snap: { 'npm:algorand': {} },
+                    }]
+                })
+            }
+            `}
+            </SyntaxHighlighter>
+        </div>
+    )
+    
+}
+
 export function NpmAppOptIn() {
     return(
         <div className='docpage'>
@@ -99,7 +124,9 @@ export function NpmAssetOptOut() {
         method: 'wallet_invokeSnap',
         params: ["npm:algorand",{
             method: 'AssetOptOut',
-            assetIndex: assetIndex
+            params:{
+                assetIndex: assetIndex
+            }
         }]
     });
 } catch (err) {console.log(err)}`}
@@ -158,7 +185,9 @@ export function NpmcreateAcct() {
         method: 'wallet_invokeSnap',
         params: ["npm:algorand",{
             method: 'createAccount',
-            name: name
+            params:{
+                name: name
+            }
         }]
     });
 } catch (err) {console.log(err)}`}
@@ -270,7 +299,9 @@ export function NpmencodeTransaction() {
         method: 'wallet_invokeSnap',
         params: ["npm:algorand",{
             method: 'encodeTransaction',
-            txn: /*txn object*/
+            params:{
+                txn: /*txn object*/
+            }
         }]
     });
 } catch (err) {console.log(err)}`}
@@ -301,7 +332,9 @@ export function NpmencodeTransactions() {
         method: 'wallet_invokeSnap',
         params: ["npm:algorand",{
             method: 'encodeTransactions',
-            txns: txns
+            params:{
+                txns: txns
+            }
         }]
     });
 } catch (err) {console.log(err)}`}
@@ -416,7 +449,9 @@ export function NpmgetAssetById() {
         method: 'wallet_invokeSnap',
         params: ["npm:algorand",{
             method: 'getAssetById',
-            assetIndex: assetIndex
+            params:{
+                assetIndex: assetIndex
+            }
         }]
     });
 } catch (err) {console.log(err)}`}
@@ -530,7 +565,9 @@ export function NpmgetTxns() {
         method: 'wallet_invokeSnap',
         params: ["npm:algorand", {
         method: 'getTransactions',
-        testnet: testnet
+        params:{
+            testnet: testnet
+        }
         }]
     })
 } catch (err) {console.log(err)}`
@@ -563,8 +600,10 @@ export function NpmimportAcct() {
         method: 'wallet_invokeSnap',
         params: ["npm:algorand",{
             method: 'importAccount',
-            mnemonic: phrase,
-            name: accountName
+            params:{
+                mnemonic: phrase,
+                name: accountName
+            }
         }]
     });
 } catch (err) {console.log(err)}`
@@ -595,7 +634,9 @@ export function NpmisValidAddress() {
         method: 'wallet_invokeSnap',
         params: ["npm:algorand",{
             method: 'isValidAddress',
-            address: address
+            params:{
+                address: address
+            }
         }]
     });
 } catch (err) {console.log(err)}`
@@ -626,7 +667,9 @@ export function NpmpostTxns() {
         method: 'wallet_invokeSnap',
         params: ["npm:algorand",{
             method: 'postTxns',
-            stxns: stxns
+            params:{
+                stxns: stxns
+            }
         }]
     });
 } catch (err) {console.log(err)}`}
@@ -685,7 +728,9 @@ export function NpmsetAcct() {
         method: 'wallet_invokeSnap',
         params: ["npm:algorand",{
             method: 'setAccount',
-            address: targetAccount
+            params:{
+                address: targetAccount
+            }
         }]
     });
 } catch (err) {console.log(err)}`
@@ -716,7 +761,9 @@ export function NpmsignAndPostTxns() {
         method: 'wallet_invokeSnap',
         params: ["npm:algorand",{
             method: 'signAndPostTxns',
-            txns: txns
+            params:{
+                txns: txns
+            }
         }]
     });
 } catch (err) {console.log(err)}`}
@@ -746,7 +793,9 @@ export function NpmsignData() {
         method: 'wallet_invokeSnap',
         params: ["npm:algorand",{
             method: 'displayBalance',
-            data: new Uint8Array()
+            params:{
+                data: new Uint8Array()
+            }
         }]
     });
 } catch (err) {console.log(err)}`}
@@ -777,7 +826,9 @@ export function NpmsignLogicSig() {
         method: 'wallet_invokeSnap',
         params: ["npm:algorand",{
             method: 'signLogicSig',
-            logicSigAccount: sig
+            params:{
+                logicSigAccount: sig
+            }
         }]
     });
 } catch (err) {console.log(err)}`}
@@ -808,7 +859,9 @@ export function NpmsignTxns() {
         method: 'wallet_invokeSnap',
         params: ["npm:algorand",{
             method: 'signTxns',
-            txns: txns
+            params:{
+                txns: txns
+            }
         }]
     });
 } catch (err) {console.log(err)}`}
@@ -841,8 +894,10 @@ export function Npmtransfer() {
         method: 'wallet_invokeSnap',
         params: ["npm:algorand",{
             method: 'transfer',
-            to: address,
-            amount: amount
+            params:{
+                to: address,
+                amount: amount
+            }
         }]
     });
 } catch (err) {console.log(err)}`}
@@ -876,8 +931,10 @@ export function NpmtransferAsset() {
         method: 'wallet_invokeSnap',
         params: ["npm:algorand",{
             method: 'transferAsset',
-            assetIndex: assetIndex,
-            to: address
+            params:{
+                assetIndex: assetIndex,
+                to: address
+            }
         }]
     });
 } catch (err) {console.log(err)}`}
@@ -907,7 +964,9 @@ export function Npmuint8ArraytoBase64() {
         method: 'wallet_invokeSnap',
         params: ["npm:algorand",{
             method: 'Uint8ArrayToBase64',
-            array: /*Uint8Array*/
+            params:{
+                array: /*Uint8Array*/
+            }
         }]
     });
 } catch (err) {console.log(err)}`}

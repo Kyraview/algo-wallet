@@ -32,7 +32,7 @@ function DocSidebar() {
           <MenuItem><Link to="sign">signTxns</Link></MenuItem>
         </SubMenu>
         <SubMenu title="npm:algorand">
-          <MenuItem>Snap Overview</MenuItem>
+          <MenuItem><Link to="npmquickstart">Snap Overview</Link></MenuItem>
           <MenuItem><Link to="npmappoptin">AppOptIn</Link></MenuItem>
           <MenuItem><Link to="npmassetoptin">AssetOptIn</Link></MenuItem>
           <MenuItem><Link to="npmassetoptout">AssetOptOut</Link></MenuItem>

@@ -60,7 +60,8 @@ export default function Demo(){
             `
         }</SyntaxHighlighter>
     </div>
-
+    This initializes the snapalgo sdk, and should only be called once.
+    Once the snapalgo sdk is initalized the wallet will appear. and the window.algorand property is populated
     <div className='code-contain'>
         <SyntaxHighlighter language="javascript" style={docco}>{
             `
@@ -71,6 +72,9 @@ export default function Demo(){
         }</SyntaxHighlighter>
         <Button onClick={initfunc}>Call Init</Button>
     </div>
+    Before any functions can be called on the sdk the wallet must be enabled in accourdance with arc.
+    This allows an end user to select the network, and the account they would like to use. This also installs the latest
+    version of the snap if it isn't already installed.
     <div className='code-contain'>
         <SyntaxHighlighter language="javascript" style={docco}>{
             `

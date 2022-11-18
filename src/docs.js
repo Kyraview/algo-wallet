@@ -2,7 +2,7 @@ import DocSidebar from './components/docsidebar';
 import { Routes, Route } from 'react-router-dom';
 import menuicon from './imgs/menu.svg';
 import {Quickstart,Algod,Base64Decode,Base64Encode,Enable,EncodeTxn,EZsign,EZsignAndPost,EZsignSmartSig,Indexer,Post,SignAndPost,Sign,TxnTutorial} from './components/sdkdocs';
-import {NpmAppOptIn,NpmAssetOptIn,NpmAssetOptOut,NpmclearAccounts,NpmcreateAcct,NpmdisplayBalance,NpmdisplayMnemonic,NpmEnable,NpmencodeTransaction,NpmencodeTransactions,NpmgetAccount,NpmgetAccounts,NpmgetAddress,NpmgetAssetById,NpmgetAssets,NpmgetBalance,NpmgetCurrentAccount,NpmgetTxns,NpmimportAcct,NpmisValidAddress,NpmpostTxns,NpmsecureReceive,NpmsetAcct,NpmsignAndPostTxns,NpmsignData,NpmsignLogicSig,NpmsignTxns,Npmtransfer,NpmtransferAsset,Npmuint8ArraytoBase64} from './components/npmdocs';
+import {NpmQuickStart, NpmAppOptIn,NpmAssetOptIn,NpmAssetOptOut,NpmclearAccounts,NpmcreateAcct,NpmdisplayBalance,NpmdisplayMnemonic,NpmEnable,NpmencodeTransaction,NpmencodeTransactions,NpmgetAccount,NpmgetAccounts,NpmgetAddress,NpmgetAssetById,NpmgetAssets,NpmgetBalance,NpmgetCurrentAccount,NpmgetTxns,NpmimportAcct,NpmisValidAddress,NpmpostTxns,NpmsecureReceive,NpmsetAcct,NpmsignAndPostTxns,NpmsignData,NpmsignLogicSig,NpmsignTxns,Npmtransfer,NpmtransferAsset,Npmuint8ArraytoBase64} from './components/npmdocs';
 import {PreSwapData, AccountObj, AlgoAddress, AlgosdkTransaction, EnabledWalletObject, EncodedTxn, EthAddress, SignedTxn, SwapHistory, SwapStatus, Ticker, WalletTransaction} from './components/docs/npm/Types';
 import { useState, useEffect } from 'react';
 
@@ -70,7 +70,7 @@ export default function Docs() {
               <Route path="EnabledWalletObject" element={<EnabledWalletObject/>}/>
               <Route path="PreSwapData" element={<PreSwapData/>}/>
               {/*SDK Functions*/}
-
+              <Route path="npmquickstart" element={<NpmQuickStart/>} />
               <Route path="npmappoptin" element={<NpmAppOptIn />} />
               <Route path="npmassetoptin" element={<NpmAssetOptIn />} />
               <Route path="npmassetoptout" element={<NpmAssetOptOut />} />
