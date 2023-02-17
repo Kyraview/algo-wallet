@@ -36,24 +36,22 @@ function Importaccount() {
         console.log(name);
         try{
             await window.ethereum.request({
-                method: 'wallet_enable',
-                params: [
-                    {
-                        wallet_snap: {
-                            ['npm:algorand']:{}
-                        }
-                    }
-                ]
-            });
+                method: 'wallet_requestSnaps',
+                params: {
+                  'npm:algorand':{}
+                  },
+                },
+              );
             await window.ethereum.request({
                 method: "wallet_invokeSnap",
-                params: ["npm:algorand", {
+                params: {snapId:"npm:algorand", 
+                request:{
                     method: 'importAccount',
                     params:{
                         mnemonic: phrase,
                         name:name
                     }
-                }]
+                }}
             });
 
             phrase = '';

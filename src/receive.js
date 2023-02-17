@@ -20,17 +20,21 @@ export default function Receive() {
     }
     const showAddress = async () => {
         
+
         await window.ethereum.request({
-            method:  'wallet_enable',
-            params: [{
-                wallet_snap: { 'npm:algorand': {} },
-            }]
-        })
+            method: 'wallet_requestSnaps',
+            params: {
+              'npm:algorand': {},
+              },
+          });
         const addr = await window.ethereum.request({
             method: 'wallet_invokeSnap',
-            params:['npm:algorand',{
-                method: 'secureReceive'
-            }]
+            params:{
+                snapId:'npm:algorand',
+                request:{
+                    method: 'secureReceive'
+                }
+            }
         })
         if(address === 4001){
             throw({code:4001})
