@@ -13,12 +13,12 @@ import reportWebVitals from './reportWebVitals';
 import SwapComponent from './components/swap/SwapComponent';
 import {AccountObj, SwapHistory, AlgoAddress, EthAddress, SwapStatus, Ticker, AlgosdkTransaction, WalletTransaction, SignedTxn, EnabledWalletObject, PreSwapData} from './components/docs/npm/Types';
 import Demo from './demo';
+//import {MicroWallet} from './microWallet'
 ReactDOM.render(
   <BrowserRouter>
   <Routes>
     <Route path='/' element={<App />}>  
       <Route path='/' element={<Home />} />
-      
       <Route path="docs" element={<Docs />}>
         <Route path="algod" element={<Algod />} />
         <Route path="base64decode" element={<Base64Decode />} />

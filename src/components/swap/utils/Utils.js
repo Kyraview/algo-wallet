@@ -20,7 +20,22 @@ const chains = {
         ticker: "ALGO"
     }
 }
+const BigNumber = require('bignumber.js');
 export default class Utils{
+
+    static async postData(url = '', data = {}) {
+      const response = await fetch(url, {
+        method: 'POST',
+        mode: 'cors',
+        credentials: 'include',
+        headers:{
+          'Content-Type':'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+  
+      return await response.json()
+    }
     static async getMin(fromTicker, toTicker){
         fromTicker = fromTicker.toLowerCase();
         toTicker = toTicker.toLowerCase();

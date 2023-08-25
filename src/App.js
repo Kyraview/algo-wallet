@@ -1,19 +1,24 @@
 import './App.css';
 import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-const snapalgosdk = require('snapalgo-sdk');
-var snapalgo;
+
+import {Wallet as metaWallet} from 'snapalgo-sdk';
+
+
 
 export default function App() {
   document.body.style = 'background: white;'
 
   useEffect(() => {
     enable();
-  });
+  }, []);
 
   const enable = async () => {
     try {
-      snapalgo = new snapalgosdk.Wallet();
+      
+      
+      const snapalgo = new metaWallet();
+      //snapalgo = snapalgoSDK.Wallet();
     } catch (err) {
       console.error(err)
       alert('Problem happened: ' + err.message || err)
